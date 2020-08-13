@@ -8,17 +8,19 @@ module.exports = {
 
 
 
-        function invite() {
+        function inviter() {
             message.channel.createInvite({
                 "maxAge": 86400
-            }).then(async invite => {
+            }).then(invite => {
 
+                console.log(invite.code)
                 return invite.code;
             }
             );
+            return invite()
         }
 
-        console.log(invite())
+        console.log(inviter())
 
 
         const serverInfoEmbed = new Discord.MessageEmbed()
@@ -26,7 +28,7 @@ module.exports = {
         .setDescription(`Guild description: ${message.guild.description}`)
         .addFields(
             {name: "Created on:", value: `${message.guild.createdAt}`},
-            {name: "Invite link: ", value: `${invite()}`},
+            {name: "Invite link: ", value: `${inviter()}`},
             {name: "Guild ID: ", value: `${message.guild.id}`},
             {name: "Server owner: ", value: `${message.guild.owner}`},
             {name: "Region: ", value: `${message.guild.region}`},
