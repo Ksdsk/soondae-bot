@@ -27,7 +27,7 @@ module.exports = {
         .setDescription(`Guild description: ${message.guild.description}`)
         .addFields(
             {name: "Created on:", value: `${message.guild.createdAt}`},
-            {name: "Invite link: ", value: `https://discord.gg/invite${invite()}`},
+            {name: "Invite link: ", value: `${invite()}`},
             {name: "Guild ID: ", value: `${message.guild.id}`},
             {name: "Server owner: ", value: `${message.guild.owner}`},
             {name: "Region: ", value: `${message.guild.region}`},
