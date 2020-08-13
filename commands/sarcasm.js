@@ -8,22 +8,20 @@ module.exports = {
 
         let msgArgs = args.join(' ');
 
-        const makeSarcasmArray = msgArgs.split("");
-
         const newSarcasmArray = [];
 
         try {
-            for (const arrayLength in makeSarcasmArray) {
+            for (var i = 0; i < msgArgs.length; i++) {
 
                 const randomInt = Math.floor(Math.random() * 2);
-                if (arrayLength != " ") {
+                if (msgArgs.charAt(i) != " ") {
                     if (randomInt == 0) {
-                        newSarcasmArray.push(makeSarcasmArray.toLowerCase())
+                        newSarcasmArray.push(msgArgs.charAt(i).toLowerCase())
                     } else {
-                        newSarcasmArray.push(makeSarcasmArray.toUpperCase())
+                        newSarcasmArray.push(msgArgs.charAt(i).toUpperCase())
                     }
                 } else {
-                    newSarcasmArray.push(makeSarcasmArray.toLowerCase())
+                    newSarcasmArray.push(msgArgs.charAt(i))
                 }
     
             }
