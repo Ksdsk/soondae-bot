@@ -10,7 +10,7 @@ module.exports = {
 
         function invite() {
             message.channel.createInvite({
-                "maxAge": 8640000
+                "maxAge": 86400
             }).then(invite => {
                 var invCode = `https://discord.gg/invite/${invite.code}`;
                 return invCode;
