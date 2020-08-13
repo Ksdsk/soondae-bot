@@ -27,12 +27,12 @@ module.exports = {
           message.author.send(helpReplyEmbed);
 
 
-        const helpReplyEmbed = new Discord.MessageEmbed()
+        const dmHelpReplyEmbed = new Discord.MessageEmbed()
         .setTimestamp()
         .setColor('#7aff81')
         .setTitle(`Sent one to your DM!`)
         .setFooter("Sent a care package to " + message.author.username, message.author.displayAvatarURL())
-        message.reply(helpReplyEmbed);
+        message.reply(dmHelpReplyEmbed);
 
       }
 
