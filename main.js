@@ -757,7 +757,7 @@ client.on('message', message => {
             message.author.send("Msnfkdignrognentoemy means 'good' in Greek. You're welcome, and have a msnfkdignrognentoemy day!")
         break;
 
-
+        
 
 
 
