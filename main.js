@@ -136,6 +136,36 @@ client.on('message', message => {
                 message.channel.send(oofHelpEmbed);
             }
 
+            // MAGIC HELP
+
+            else if(msgArray[2] == 'magic') {
+                const oofHelpEmbed = new Discord.MessageEmbed()
+                    .setTimestamp()
+                    .setColor('#fffc4a')
+                    .setTitle("Help for 'magic' command")
+                    .setDescription("**snd magic** returns an answer from the glorious Soondae!")
+                    .addFields(
+                        {name: 'Syntax', value: '```snd magic <Any questions>```'}
+                    )
+                    .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+                message.channel.send(oofHelpEmbed);
+            }
+
+            // SARCASM HELP
+
+            else if(msgArray[2] == 'sarcasm') {
+                const oofHelpEmbed = new Discord.MessageEmbed()
+                    .setTimestamp()
+                    .setColor('#fffc4a')
+                    .setTitle("Help for 'sarcasm' command")
+                    .setDescription("**snd sarcasm** mAkEs eVErYtHIng LoOK lIKe tHis!")
+                    .addFields(
+                        {name: 'Syntax', value: '```snd sarcasm <Sentence>```'}
+                    )
+                    .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+                message.channel.send(oofHelpEmbed);
+            }
+
             // -----------------------------------------------------------------------------------------------------------------------
 
             // GIF HELP
@@ -482,6 +512,24 @@ client.on('message', message => {
 
         break;
         
+        // SARCASM 
+
+        case 'sarcasm':
+            try {
+                client.commands.get('sarcasm').execute(message, args);
+            } catch(err) {
+                console.log("Error has occured: " + err.stack);
+                const sarcasmErrorEmbed = new Discord.MessageEmbed()
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry! There's an error turning your message into a sarcasm!")
+                    .setFooter("Sarcasm requested by " + message.author.username, message.author.displayAvatarURL())
+                message.channel.send(sarcasmErrorEmbed).then(deleteMessage => {
+                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                });
+                message.delete().catch(console.error);
+            }
+        break;
 
         // GIFs
         // CHICA 
