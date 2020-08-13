@@ -13,7 +13,7 @@ module.exports = {
             },
           )
           .catch(console.log);
-            return invite
+            return await invite
           }
 
         console.log(getInv())
