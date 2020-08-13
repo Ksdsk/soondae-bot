@@ -10,7 +10,7 @@ module.exports = {
 
         const makeSarcasmArray = msgArgs.split("");
 
-        const newSarcasmArray;
+        const newSarcasmArray = [];
 
         try {
             for (const arrayLength in makeSarcasmArray) {
