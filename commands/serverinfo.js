@@ -11,9 +11,9 @@ module.exports = {
         function invite() {
             message.channel.createInvite({
                 "maxAge": 86400
-            }).then(invite => {
-                console.log(invite.code)
-                var invCode = `https://discord.gg/invite/${invite.code}`;
+            }).then(async invite => {
+                var code = await invite.code
+                var invCode = 'https://discord.gg/invite/' + String(code);
                 return invCode;
             }
             );
