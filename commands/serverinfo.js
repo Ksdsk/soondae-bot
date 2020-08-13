@@ -12,14 +12,13 @@ module.exports = {
             message.channel.createInvite({
                 "maxAge": 86400
             }).then(async invite => {
-                var code = await invite.code
-                var invCode = 'https://discord.gg/invite/' + String(code);
-                return invCode;
+
+                return invite.code;
             }
             );
         }
 
-        
+        console.log(invite())
 
 
         const serverInfoEmbed = new Discord.MessageEmbed()
