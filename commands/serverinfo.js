@@ -7,14 +7,17 @@ module.exports = {
     execute(message, args){
 
 
-        message.channel.createInvite({
-            "maxAge": 8640000
-        }).then(invite => {
-            var invCode = `https://discord.gg/invite/${invite.code}`;
-            return invCode;
+
+        function invite() {
+            message.channel.createInvite({
+                "maxAge": 8640000
+            }).then(invite => {
+                var invCode = `https://discord.gg/invite/${invite.code}`;
+                return invCode;
+            }
+            );
         }
-        ).catch(console.error);
-        
+
         
 
 
