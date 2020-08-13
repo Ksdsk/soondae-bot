@@ -5,8 +5,6 @@ module.exports = {
     description: 'This command sends all information about this server.',
     execute(message, args){
 
-        const guild = new Discord.Guild(clientdata);
-
         message.channel.createInvite({
             "maxAge": time
         }).then(invite => message.channel.send({
