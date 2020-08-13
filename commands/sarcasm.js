@@ -18,12 +18,12 @@ module.exports = {
                 const randomInt = Math.floor(Math.random() * 2);
                 if (arrayLength != " ") {
                     if (randomInt == 0) {
-                        newSarcasmArray.push(arrayLength.toLowerCase())
+                        newSarcasmArray.push(makeSarcasmArray.toLowerCase())
                     } else {
-                        newSarcasmArray.push(arrayLength.toUpperCase())
+                        newSarcasmArray.push(makeSarcasmArray.toUpperCase())
                     }
                 } else {
-                    newSarcasmArray.push(arrayLength.toLowerCase())
+                    newSarcasmArray.push(makeSarcasmArray.toLowerCase())
                 }
     
             }
