@@ -611,7 +611,7 @@ client.on('message', message => {
 
         case 'voice':
             try {
-                client.commands.get('mute').execute(message, args);
+                client.commands.get('voice').execute(message, args);
             } catch(err) {
                 console.log("Error has occured: " + err.stack);
             const voiceErrorEmbed = new Discord.MessageEmbed()
