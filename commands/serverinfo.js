@@ -31,39 +31,39 @@ module.exports = {
 
 
         .addField('General', [
-            `**Created on: ** ${moment(message.guild.createdAt).format('LT')} ${moment(message.guild.createdAt).format('LL')} ${moment(message.guild.createdAt).fromNow()}\n`,
-            `**Invite Link: **${invite}\n`,
-            `**Guild ID: **${message.guild.id}\n`,
-            `**Server Owner: **${message.guild.owner.user.tag}\n`,
-            `**Server Region: **${message.guild.region}\n`,
-            `**Boost Tier : **${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : "None"}\n`,
-            `**Explicit Filter: **${message.guild.explicitContentFilter}\n`,
-            `**Verification level: **${message.guild.verificationLevel}\n`,
-            `**Server region: **${message.guild.region}\n`,
+            `**Created on: ** ${moment(message.guild.createdAt).format('LT')} ${moment(message.guild.createdAt).format('LL')} ${moment(message.guild.createdAt).fromNow()}`,
+            `**Invite Link: **${invite}`,
+            `**Guild ID: **${message.guild.id}`,
+            `**Server Owner: **${message.guild.owner.user.tag}`,
+            `**Server Region: **${message.guild.region}`,
+            `**Boost Tier : **${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : "None"}`,
+            `**Explicit Filter: **${message.guild.explicitContentFilter}`,
+            `**Verification level: **${message.guild.verificationLevel}`,
+            `**Server region: **${message.guild.region}`,
 
         ])
 
 
         .addField('Members', [
-            `**Total: **${message.guild.memberCount}\n`,
-            `**Online: **${members.filter(member => member.presence.status === 'online').size}\n`,
-            `**Away: **${members.filter(member => member.presence.status === 'idle').size}\n`,
-            `**Do Not Disturb: **${members.filter(member => member.presence.status === 'dnd').size}\n`,
-            `**Offline: **${members.filter(member => member.presence.status === 'offline').size}\n`,
-            `**Humans: **${members.filter(member => !member.user.bot).size}\n`,
-            `**Bots: **${members.filter(member => member.user.bot).size}\n`,
+            `**Total: **${message.guild.memberCount}`,
+            `**Online: **${members.filter(member => member.presence.status === 'online').size}`,
+            `**Away: **${members.filter(member => member.presence.status === 'idle').size}`,
+            `**Do Not Disturb: **${members.filter(member => member.presence.status === 'dnd').size}`,
+            `**Offline: **${members.filter(member => member.presence.status === 'offline').size}`,
+            `**Humans: **${members.filter(member => !member.user.bot).size}`,
+            `**Bots: **${members.filter(member => member.user.bot).size}`,
         ])
 
 
 
         .addField('Numbers', [
-            `**Number of Roles: **${roles.length}\n`,
-            `**Number of All Emojis: **${emojis.size}\n`,
-            `**Number of Regular Emojis: **${emojis.filter(emoji => !emoji.animated).size}\n`,
-            `**Number of Animated Emojis: **${emojis.filter(emoji => emoji.animated).size}\n`,
-            `**Number of Text Channels: **${channels.filter(channel => channel.type === 'text').size}\n`,
-            `**Number of Text Channels: **${channels.filter(channel => channel.type === 'voice').size}\n`,
-            `**Number of Boosts : **${message.guild.premiumSubscriptionCount || '0'}\n`,
+            `**Number of Roles: **${roles.length}`,
+            `**Number of All Emojis: **${emojis.size}`,
+            `**Number of Regular Emojis: **${emojis.filter(emoji => !emoji.animated).size}`,
+            `**Number of Animated Emojis: **${emojis.filter(emoji => emoji.animated).size}`,
+            `**Number of Text Channels: **${channels.filter(channel => channel.type === 'text').size}`,
+            `**Number of Text Channels: **${channels.filter(channel => channel.type === 'voice').size}`,
+            `**Number of Boosts : **${message.guild.premiumSubscriptionCount || '0'}`,
         ])
 
         //.addField('Roles', [`${roles.length - 1}`], roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : "None")
