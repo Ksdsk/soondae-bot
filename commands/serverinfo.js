@@ -16,19 +16,40 @@ module.exports = {
           )
           .catch(console.log);
           
+            const roles = message.guild.roles.cache.sort((a,b) => b.position - a.position).map(role => role.toString());
+            const members = message.guild.members.cache;
+            const channels = message.guild.channels.cache;
+            const emojis = message.guild.emojis.cache;
+
+
+
+
           const serverInfoEmbed = new Discord.MessageEmbed()
         .setTitle(`Information for ${message.guild.name}`)
-        .setDescription(`Guild description: ${message.guild.description}`)
-        .addFields(
-            {name: "Created on:", value: `${message.guild.createdAt}`},
-            {name: "Invite link: ", value: `${invite}`},
-            {name: "Guild ID: ", value: `${message.guild.id}`},
-            {name: "Server owner: ", value: `${message.guild.owner}`},
-            {name: "Region: ", value: `${message.guild.region}`},
-            {name: "Number of members:", value: `${message.guild.memberCount}`}
-        )
+        .setColor('#4af3ff')
+        .setThumbnail(message.guild.iconURL({dynamic: true}))
 
 
+        .addField('General', [
+            `**Created on: ** ${message.guild.createdAt}`,
+            `**Invite link: **${invite}`,
+            `**Guild ID: **${message.guild.id}`,
+            `**Server owner: **${message.guild.owner.user.tag}`,
+            `**Server region: **${message.guild.region}`
+        ])
+
+
+        .addField('Members', [
+
+            {name: "Number of members:", value: `${message.guild.memberCount}`},
+            {name: "Online: ", value: `${message.guild.region}`}
+        ])
+
+
+
+
+
+        
         message.channel.send(serverInfoEmbed);
           }
 
