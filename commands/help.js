@@ -109,7 +109,7 @@ module.exports = {
             .setTitle("Help for 'serverinfo' command")
             .setDescription("**snd serverinfo** sends a detailed info about this server. This command is limited to Administrators.")
             .addFields(
-                {name: 'Syntax', value: '```snd poll <poll>```'}
+                {name: 'Syntax', value: '```snd serverinfo```'}
             )
             .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
         message.channel.send(oofHelpEmbed);

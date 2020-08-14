@@ -73,6 +73,13 @@ module.exports = {
         message.author.send(serverInfoEmbed);
           }
 
+          const dmHelpReplyEmbed = new Discord.MessageEmbed()
+          .setTimestamp()
+          .setColor('#7aff81')
+          .setTitle(`Sent one to your DM!`)
+          .setFooter("Server Info requested by " + message.author.username, message.author.displayAvatarURL())
+          message.reply(dmHelpReplyEmbed);
+
         serverinfo()
     }
 }
