@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 module.exports = {
     name: 'voice',
     description: 'Hub for all voice-related moderations.',
@@ -5,6 +7,7 @@ module.exports = {
         var user = message.mentions.users.first();
         var member = message.guild.member(user);
         let msgArray = message.content.split(' ');
+
         if (!msgArray[2]) {
             const voiceErrorEmbed = new Discord.MessageEmbed()
             .setTimestamp()
