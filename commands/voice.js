@@ -30,7 +30,7 @@ module.exports = {
                         try {
                             if (member.voice.channel) {
                     
-                                member.voice.channel.setMute(true)
+                                member.setMute(true)
                                 const muteEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
                                 .setColor('#7aff81')
@@ -74,7 +74,7 @@ module.exports = {
                         try {
                             if (member.voice.channel) {
                     
-                                member.voice.channel.setMute(false)
+                                member.setMute(false)
                                 const unmuteEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
                                 .setColor('#7aff81')
@@ -118,7 +118,7 @@ module.exports = {
                         try {
                             if (member.voice.channel) {
                     
-                                member.voice.channel.setDeaf(true)
+                                member.setDeaf(true)
                                 const deafenEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
                                 .setColor('#7aff81')
@@ -160,7 +160,7 @@ module.exports = {
                         try {
                             if (member.voice.channel) {
                     
-                                member.voice.channel.setDeaf(false)
+                                member.setDeaf(false)
                                 const undeafenEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
                                 .setColor('#7aff81')
