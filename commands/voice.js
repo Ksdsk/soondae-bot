@@ -26,48 +26,46 @@ module.exports = {
                 // MUTE
     
                 case "mute":
-                    async function muteMember() {
-                        if (message.member.hasPermission('MUTE_MEMBERS')) {
-                            try {
-                                if (member.voice.channel) {
-                        
-                                    await user.setMute(true)
-                                    const muteEmbed = new Discord.MessageEmbed()
-                                    .setTimestamp()
-                                    .setColor('#7aff81')
-                                    .setTitle(`Successfully muted ${user.username}!`)
-                                    .setFooter("Muted by " + message.author.username, message.author.displayAvatarURL())
-                                    message.channel.send(muteEmbed);
-                        
-                        
-                                } else {
-                                    const muteErrorEmbed = new Discord.MessageEmbed()
-                                    .setTimestamp()
-                                    .setColor('#ff366b')
-                                    .setTitle("Sorry. This user is not in a voice channel!")
-                                    .setFooter("Mute requested by " + message.author.username, message.author.displayAvatarURL())
-                                    message.delete().catch(console.error);
-                                    message.channel.send(muteErrorEmbed).then(deleteMessage => {
-                                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                                    });
-                                }
-                            } catch(err) {
-                                console.log(err.stack)
+
+                    if (message.member.hasPermission('MUTE_MEMBERS')) {
+                        try {
+                            if (member.voice.channel) {
+                    
+                                await member.voice.setMute(true)
+                                const muteEmbed = new Discord.MessageEmbed()
+                                .setTimestamp()
+                                .setColor('#7aff81')
+                                .setTitle(`Successfully muted ${user.username}!`)
+                                .setFooter("Muted by " + message.author.username, message.author.displayAvatarURL())
+                                message.channel.send(muteEmbed);
+                    
+                    
+                            } else {
                                 const muteErrorEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
                                 .setColor('#ff366b')
-                                .setTitle("Sorry. I couldn't mute the user!")
+                                .setTitle("Sorry. This user is not in a voice channel!")
                                 .setFooter("Mute requested by " + message.author.username, message.author.displayAvatarURL())
                                 message.delete().catch(console.error);
                                 message.channel.send(muteErrorEmbed).then(deleteMessage => {
                                     deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                            
-                                })
+                                });
                             }
-        
+                        } catch(err) {
+                            console.log(err.stack)
+                            const muteErrorEmbed = new Discord.MessageEmbed()
+                            .setTimestamp()
+                            .setColor('#ff366b')
+                            .setTitle("Sorry. I couldn't mute the user!")
+                            .setFooter("Mute requested by " + message.author.username, message.author.displayAvatarURL())
+                            message.delete().catch(console.error);
+                            message.channel.send(muteErrorEmbed).then(deleteMessage => {
+                                deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                        
+                            })
                         }
+    
                     }
-                    muteMember()
                 break;
     
                 // UNMUTE
@@ -77,7 +75,7 @@ module.exports = {
                         try {
                             if (member.voice.channel) {
                     
-                                member.setMute(false)
+                                member.voice.setMute(false)
                                 const unmuteEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
                                 .setColor('#7aff81')
@@ -121,7 +119,7 @@ module.exports = {
                         try {
                             if (member.voice.channel) {
                     
-                                member.setDeaf(true)
+                                member.voice.setDeaf(true)
                                 const deafenEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
                                 .setColor('#7aff81')
@@ -163,7 +161,7 @@ module.exports = {
                         try {
                             if (member.voice.channel) {
                     
-                                member.setDeaf(false)
+                                member.voice.setDeaf(false)
                                 const undeafenEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
                                 .setColor('#7aff81')
