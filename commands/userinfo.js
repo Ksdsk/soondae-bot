@@ -38,15 +38,18 @@ module.exports = {
             `**Username: **${member.user.tag}`,
             `**ID: **${member.id}`,
             `**Flags: **${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None'}`,
-            `**Avatar: **[Link to Avatar]${member.user.displayAvatarURL({dynamic: true})}`,
+            `**Avatar: **${member.user.displayAvatarURL({dynamic: true})}`,
             `**Time Created: **${moment(member.user.createdTimestamp).format('LT')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
             `**Status: **${member.user.presence.status}`,
             `**Game: **${member.user.presence.game || 'Not Playing a Game'}`
         ])
-        .addField('Member', [
+        .addField('Member (In-Server Info)', [
+            `**Server Member of: **${message.guild.name}`,
+            `**Nickname: **${member.nickname || 'None'}`,
             `**Highest Role: **${member.roles.highest.id === message.guild.id ? 'None' : member.roles.highest.name}`,
-            `**Server Joined in: **${moment(member.joinedAt).format('LL LTS')}`,
-            `**Hoist Role: **${member.roles.hoist ? member.roles.hoist.name : 'None'}`,
+            `**Shown Role: **${member.roles.hoist ? member.roles.hoist.name : 'None'}`,
+            `**Server Joined in: **${moment(member.joinedAt).format('LL LTS')}`
+
             //`**Roles: **[${roles.length}]: ${roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.utils.trimArray(roles) : 'None'}`
         ])
 
