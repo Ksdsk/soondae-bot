@@ -27,7 +27,7 @@ module.exports = {
         async function userinfo() {
           
             const roles = message.guild.roles.cache.sort((a,b) => b.position - a.position).map(role => role.toString()).slice(0, -1);
-            const member = message.mentions.members.last() || message.guild.members.cache.get(target) || message.member;
+            const member = message.mentions.members.last() || message.guild.members.cache.get(message.mentions.members.last()) || message.member;
             const userFlags = member.user.flags.toArray();
 
           const userInfoEmbed = new Discord.MessageEmbed()
