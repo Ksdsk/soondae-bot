@@ -5,7 +5,21 @@ module.exports = {
         var user = message.mentions.users.first();
         var member = message.guild.member(user);
         let msgArray = message.content.split(' ');
-
+        if (!msgArray[2]) {
+            const voiceErrorEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#4af3ff')
+            .setTitle("Voice moderation list")
+            .addFields(
+                {name: "🔊 | Voice", value: "```mute``````unmute``````deafen``````undeafen```"}
+            )
+            .setFooter("Voice Moderation List requested by " + message.author.username, message.author.displayAvatarURL())
+            message.delete().catch(console.error);
+            message.channel.send(voiceErrorEmbed).then(deleteMessage => {
+                deleteMessage.delete({ timeout: 5000}).catch(console.error)
+        
+            })
+        }
         switch(msgArray[2]) {
 
 
