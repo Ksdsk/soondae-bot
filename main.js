@@ -34,7 +34,20 @@ client.on('message', message => {
         // THIS IS A HELP THREAD OF THE CODE. UPDATE FREQUENTLY AS NEW COMMANDS ARE ADDED INTO ./COMMANDS/ FOLDER!
         // HELP
         case 'help':
-            
+            try {
+                client.commands.get('help').execute(message, args);
+            } catch(err) {
+                console.log("Error has occured: " + err.stack);
+                    const helpErrorEmbed = new Discord.MessageEmbed()
+                        .setTimestamp()
+                        .setColor('#ff366b')
+                        .setTitle("Sorry. I couldn't help you!")
+                        .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+                    message.channel.send(helpErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
+                    message.delete().catch(console.error);
+            }
         break;
 
         // COMMANDS BEGIN
@@ -554,14 +567,6 @@ client.on('message', message => {
         case 'msnfkdignrognentoemy':
             message.author.send("Msnfkdignrognentoemy means 'good' in Greek. You're welcome, and have a msnfkdignrognentoemy day!")
         break;
-
-        
-
-
-
-
-
-
 
         //DEFAULT 
         default:

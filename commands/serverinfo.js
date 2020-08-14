@@ -68,7 +68,7 @@ module.exports = {
 
         //.addField('Roles', [`${roles.length - 1}`], roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : "None")
         .setTimestamp()
-
+        .setFooter("Server Info requested by " + message.author.username, message.author.displayAvatarURL())
         
         message.channel.send(serverInfoEmbed);
           }
