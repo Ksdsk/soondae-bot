@@ -6,7 +6,7 @@ module.exports = {
     description: 'This command sends all information about this server.',
     execute(message, args){
 
-        async function replyWithInvite(message) {
+        async function replyWithInvite() {
             let invite = await message.channel.createInvite(
             {
               maxAge: 86400,
