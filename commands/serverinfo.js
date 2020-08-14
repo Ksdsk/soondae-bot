@@ -66,7 +66,7 @@ module.exports = {
             `**Number of Boosts : **${message.guild.premiumSubscriptionCount || '0'}\n`,
         ])
 
-        .addField('Roles', [`${roles.length - 1}`], roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : "None")
+        .addField(`Roles [${roles.length - 1}]`, roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : "None")
         .setTimestamp()
 
         
