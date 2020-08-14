@@ -70,13 +70,8 @@ module.exports = {
         .setTimestamp()
         .setFooter("Server Info requested by " + message.author.username, message.author.displayAvatarURL())
         
-        message.channel.send(serverInfoEmbed);
+        message.author.send(serverInfoEmbed);
           }
-
-
-
-
-        
 
         serverinfo()
     }

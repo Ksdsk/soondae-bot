@@ -100,6 +100,20 @@ module.exports = {
           message.channel.send(oofHelpEmbed);
       }
 
+      // SERVERINFO
+
+      else if(msgArray[2] == 'serverinfo') {
+        const oofHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'serverinfo' command")
+            .setDescription("**snd serverinfo** sends a detailed info about this server. This command is limited to Administrators.")
+            .addFields(
+                {name: 'Syntax', value: '```snd poll <poll>```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(oofHelpEmbed);
+    }
       // -----------------------------------------------------------------------------------------------------------------------
 
       // FUN HELP
