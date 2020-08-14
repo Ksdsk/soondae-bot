@@ -9,6 +9,7 @@
   "author": "Daniel (Soondae)",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.2.0"
+    "discord.js": "^12.2.0",
+    "moment": "^2.27.0"
   }
 }
