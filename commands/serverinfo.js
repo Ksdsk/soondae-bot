@@ -7,16 +7,18 @@ module.exports = {
     execute(message, args){
 
         async function getInv() {
+
             let invite = await message.channel.createInvite(
             {
               maxAge: 86400
             },
-          )
+          ).then(invitecode => { return invitecode + " " + invite })
           .catch(console.log);
-            return await invite
+            
           }
 
         console.log(getInv())
+
 
 
         const serverInfoEmbed = new Discord.MessageEmbed()
