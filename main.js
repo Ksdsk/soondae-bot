@@ -184,31 +184,44 @@ client.on('message', message => {
         // SERVERINFO
 
         case 'serverinfo':
-            if (message.member.hasPermission('ADMINISTRATOR')) {
-                try {
-                    client.commands.get('serverinfo').execute(message, args);
-                } catch(err) {
-                    console.log("Error has occured: " + err.stack);
-                        const avatarErrorEmbed = new Discord.MessageEmbed()
-                            .setTimestamp()
-                            .setColor('#ff366b')
-                            .setTitle("Sorry. I couldn't send the info!")
-                            .setFooter("Info requested by " + message.author.username, message.author.displayAvatarURL())
-                        message.channel.send(avatarErrorEmbed).then(deleteMessage => {
-                            deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                        });
-                        message.delete().catch(console.error);
+            try {
+                if (message.member.hasPermission('ADMINISTRATOR')) {
+                    try {
+                        client.commands.get('serverinfo').execute(message, args);
+                    } catch(err) {
+                        console.log("Error has occured: " + err.stack);
+                            const avatarErrorEmbed = new Discord.MessageEmbed()
+                                .setTimestamp()
+                                .setColor('#ff366b')
+                                .setTitle("Sorry. I couldn't send the info!")
+                                .setFooter("Server Info requested by " + message.author.username, message.author.displayAvatarURL())
+                            message.channel.send(avatarErrorEmbed).then(deleteMessage => {
+                                deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                            });
+                            message.delete().catch(console.error);
+                    }
+                } else {
+                    const kickErrorEmbed = new Discord.MessageEmbed()
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry. You do not have permissions to view the details of this guild!")
+                    .setFooter("Server Info requested by " + message.author.username, message.author.displayAvatarURL())
+                    message.delete().catch(console.error);
+                    message.channel.send(kickErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
                 }
-            } else {
+            } catch(err) {
+                console.log(err)
                 const kickErrorEmbed = new Discord.MessageEmbed()
-                .setTimestamp()
-                .setColor('#ff366b')
-                .setTitle("Sorry. You do not have permissions to view the details of this guild!")
-                .setFooter("Info requested by " + message.author.username, message.author.displayAvatarURL())
-                message.delete().catch(console.error);
-                message.channel.send(kickErrorEmbed).then(deleteMessage => {
-                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                });
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry. There's been a fatal error!")
+                    .setFooter("Server Info requested by " + message.author.username, message.author.displayAvatarURL())
+                    message.delete().catch(console.error);
+                    message.channel.send(kickErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
             }
             
         break;
@@ -424,135 +437,174 @@ client.on('message', message => {
         // KICK
 
         case 'kick':
-            if(message.member.hasPermission('KICK_MEMBERS')) {
-                try {
-                    client.commands.get('kick').execute(message, args);
-                } catch(err) {
-                    console.log("Error has occured: " + err.stack);
-                const avatarErrorEmbed = new Discord.MessageEmbed()
+            try {
+                if(message.member.hasPermission('KICK_MEMBERS')) {
+                    try {
+                        client.commands.get('kick').execute(message, args);
+                    } catch(err) {
+                        console.log("Error has occured: " + err.stack);
+                    const avatarErrorEmbed = new Discord.MessageEmbed()
+                        .setTimestamp()
+                        .setColor('#ff366b')
+                        .setTitle("Sorry. I couldn't kick that user!")
+                        .setFooter("Kick requested by " + message.author.username, message.author.displayAvatarURL())
+                    message.channel.send(avatarErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
+                    message.delete().catch(console.error);
+                    }
+                }
+                else {
+                    const kickErrorEmbed = new Discord.MessageEmbed()
                     .setTimestamp()
                     .setColor('#ff366b')
-                    .setTitle("Sorry. I couldn't kick that user!")
+                    .setTitle("Sorry. You do not have permissions to kick a user!")
                     .setFooter("Kick requested by " + message.author.username, message.author.displayAvatarURL())
-                message.channel.send(avatarErrorEmbed).then(deleteMessage => {
-                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                });
-                message.delete().catch(console.error);
-                }
-            }
-            else {
+                    message.delete().catch(console.error);
+                    message.channel.send(kickErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
+                } 
+            } catch(err) {
                 const kickErrorEmbed = new Discord.MessageEmbed()
                 .setTimestamp()
                 .setColor('#ff366b')
-                .setTitle("Sorry. You do not have permissions to kick a user!")
+                .setTitle("Sorry. There's been a fatal error!")
                 .setFooter("Kick requested by " + message.author.username, message.author.displayAvatarURL())
                 message.delete().catch(console.error);
                 message.channel.send(kickErrorEmbed).then(deleteMessage => {
                     deleteMessage.delete({ timeout: 5000}).catch(console.error)
                 });
             }
+            
         break;
 
         case 'ban':
-            if(message.member.hasPermission('BAN_MEMBERS')) {
-                try {
-                    client.commands.get('ban').execute(message, args);
-                } catch(err) {
-                    console.log("Error has occured: " + err.stack);
-                const avatarErrorEmbed = new Discord.MessageEmbed()
+            try {
+                if(message.member.hasPermission('BAN_MEMBERS')) {
+                    try {
+                        client.commands.get('ban').execute(message, args);
+                    } catch(err) {
+                        console.log("Error has occured: " + err.stack);
+                    const avatarErrorEmbed = new Discord.MessageEmbed()
+                        .setTimestamp()
+                        .setColor('#ff366b')
+                        .setTitle("Sorry. I couldn't ban that user!")
+                        .setFooter("Ban requested by " + message.author.username, message.author.displayAvatarURL())
+                        message.channel.send(avatarErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
+                    message.delete().catch(console.error);
+                    }
+                }
+                else {
+                    const kickErrorEmbed = new Discord.MessageEmbed()
                     .setTimestamp()
                     .setColor('#ff366b')
-                    .setTitle("Sorry. I couldn't ban that user!")
+                    .setTitle("Sorry. You do not have permissions to unban a user!")
                     .setFooter("Ban requested by " + message.author.username, message.author.displayAvatarURL())
-                    message.channel.send(avatarErrorEmbed).then(deleteMessage => {
-                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                });
-                message.delete().catch(console.error);
+                    message.delete().catch(console.error);
+                    message.channel.send(kickErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
                 }
-            }
-            else {
+            } catch(err) {
                 const kickErrorEmbed = new Discord.MessageEmbed()
-                .setTimestamp()
-                .setColor('#ff366b')
-                .setTitle("Sorry. You do not have permissions to unban a user!")
-                .setFooter("Ban requested by " + message.author.username, message.author.displayAvatarURL())
-                message.delete().catch(console.error);
-                message.channel.send(kickErrorEmbed).then(deleteMessage => {
-                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                });
-            }
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry. You do not have permissions to unban a user!")
+                    .setFooter("Ban requested by " + message.author.username, message.author.displayAvatarURL())
+                    message.delete().catch(console.error);
+                    message.channel.send(kickErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
+                }
+            
         break;
         
         // UNBAN
         case 'unban':
-            if(message.member.hasPermission('BAN_MEMBERS')) {
-                try {
-                    if (!msgArray[2]) {
-
-                        const unbanErrorEmbed = new Discord.MessageEmbed()
+            try {
+                if(message.member.hasPermission('BAN_MEMBERS')) {
+                    try {
+                        if (!msgArray[2]) {
+    
+                            const unbanErrorEmbed = new Discord.MessageEmbed()
+                            .setTimestamp()
+                            .setColor('#ff366b')
+                            .setTitle("Sorry. Please enter the user ID of the user you wish to unban!")
+                            .setFooter("Unban requested by " + message.author.username, message.author.displayAvatarURL())
+                            message.delete().catch(console.error);
+                            message.channel.send(unbanErrorEmbed).then(deleteMessage => {
+                                deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                            });
+                        }
+                        async function check() {
+                            try {
+                
+                                var banFetch = client.users.fetch(msgArray[2])
+                                console.log(await banFetch);
+                                message.guild.members.unban(msgArray[2])
+                
+                
+                                const avatarEmbed = new Discord.MessageEmbed()
+                                    .setTimestamp()
+                                    .setColor('#7aff81')
+                                    .setTitle(`Successfully unbanned ${msgArray[2]}`)
+                                    .setFooter("Unbanned by " + message.author.username, message.author.displayAvatarURL())
+                                    message.channel.send(avatarEmbed);
+                            } catch(err) {
+                                console.log(err)
+                                const unbanErrorEmbed = new Discord.MessageEmbed()
+                                    .setTimestamp()
+                                    .setColor('#ff366b')
+                                    .setTitle("Sorry. There's been an error...")
+                                    .setDescription("This error is usually due to attempting to ban an invalid user ID, or the user ID has never been banned from the server!")
+                                    .setFooter("Unban requested by " + message.author.username, message.author.displayAvatarURL())
+                                    message.delete().catch(console.error);
+                                    message.channel.send(unbanErrorEmbed).then(deleteMessage => {
+                                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                                    });
+                            }
+                        }
+                            
+                        check();
+                    } catch(err) {
+                        console.log("Error has occured: " + err.stack);
+                    const avatarErrorEmbed = new Discord.MessageEmbed()
                         .setTimestamp()
                         .setColor('#ff366b')
-                        .setTitle("Sorry. Please enter the user ID of the user you wish to unban!")
+                        .setTitle("Sorry. I couldn't unban that user!")
                         .setFooter("Unban requested by " + message.author.username, message.author.displayAvatarURL())
-                        message.delete().catch(console.error);
-                        message.channel.send(unbanErrorEmbed).then(deleteMessage => {
-                            deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                        });
+                        message.channel.send(avatarErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
+                    message.delete().catch(console.error);
                     }
-                    async function check() {
-                        try {
-            
-                            var banFetch = client.users.fetch(msgArray[2])
-                            console.log(await banFetch);
-                            message.guild.members.unban(msgArray[2])
-            
-            
-                            const avatarEmbed = new Discord.MessageEmbed()
-                                .setTimestamp()
-                                .setColor('#7aff81')
-                                .setTitle(`Successfully unbanned ${msgArray[2]}`)
-                                .setFooter("Unbanned by " + message.author.username, message.author.displayAvatarURL())
-                                message.channel.send(avatarEmbed);
-                        } catch(err) {
-                            console.log(err)
-                            const unbanErrorEmbed = new Discord.MessageEmbed()
-                                .setTimestamp()
-                                .setColor('#ff366b')
-                                .setTitle("Sorry. There's been an error...")
-                                .setDescription("This error is usually due to attempting to ban an invalid user ID, or the user ID has never been banned from the server!")
-                                .setFooter("Unban requested by " + message.author.username, message.author.displayAvatarURL())
-                                message.delete().catch(console.error);
-                                message.channel.send(unbanErrorEmbed).then(deleteMessage => {
-                                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                                });
-                        }
-                    }
-                        
-                    check();
-                } catch(err) {
-                    console.log("Error has occured: " + err.stack);
-                const avatarErrorEmbed = new Discord.MessageEmbed()
+                }
+                else {
+                    const kickErrorEmbed = new Discord.MessageEmbed()
                     .setTimestamp()
                     .setColor('#ff366b')
-                    .setTitle("Sorry. I couldn't unban that user!")
+                    .setTitle("Sorry. You do not have permissions to unban a user!")
                     .setFooter("Unban requested by " + message.author.username, message.author.displayAvatarURL())
-                    message.channel.send(avatarErrorEmbed).then(deleteMessage => {
-                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                });
-                message.delete().catch(console.error);
+                    message.delete().catch(console.error);
+                    message.channel.send(kickErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
                 }
-            }
-            else {
+            } catch(err) {
                 const kickErrorEmbed = new Discord.MessageEmbed()
-                .setTimestamp()
-                .setColor('#ff366b')
-                .setTitle("Sorry. You do not have permissions to unban a user!")
-                .setFooter("Unban requested by " + message.author.username, message.author.displayAvatarURL())
-                message.delete().catch(console.error);
-                message.channel.send(kickErrorEmbed).then(deleteMessage => {
-                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                });
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry. There's been a fatal error!")
+                    .setFooter("Unban requested by " + message.author.username, message.author.displayAvatarURL())
+                    message.delete().catch(console.error);
+                    message.channel.send(kickErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
             }
+            
         break;
         // SUPER SECRET COMMANDS
 
