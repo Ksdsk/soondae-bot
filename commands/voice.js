@@ -31,7 +31,7 @@ module.exports = {
                             try {
                                 if (member.voice.channel) {
                         
-                                    await member.setMute(true)
+                                    await user.setMute(true)
                                     const muteEmbed = new Discord.MessageEmbed()
                                     .setTimestamp()
                                     .setColor('#7aff81')
