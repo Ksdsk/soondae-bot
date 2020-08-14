@@ -12,10 +12,10 @@ module.exports = {
             {
               maxAge: 86400
             },
-          ).then(invitecode => { return invitecode })
+          ).then(invitecode => { return await invitecode })
           .catch(console.log);
-          
-            return invite
+
+            return await invite
           }
 
         console.log(getInv())
