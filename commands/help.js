@@ -20,7 +20,7 @@ module.exports = {
             { name: "🔨 | Tools", value: "```avatar``````help``````invite``````poll``````serverinfo``````userinfo```"},
             { name: "😜 | Fun Stuff", value: "```babe``````ping``````magic``````sarcasm```"},
             { name: "💥 | GIFs", value: "```chica``````chico``````ohayo``````oof``````uwu```"},
-            { name: "🦾 | Moderation", value: "```kick``````ban``````unban```"},
+            { name: "🦾 | Moderation", value: "```kick``````ban``````unban``````voice```"},
             { name: "🌀 | Other", value: "```invitebot```"}
           )
           .setFooter("Sent a care package to " + message.author.username, message.author.displayAvatarURL())

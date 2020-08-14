@@ -606,9 +606,26 @@ client.on('message', message => {
             }
             
         break;
+        
+        // VOICE COMMANDS
 
-        // MUTE
-
+        case 'voice':
+            try {
+                client.commands.get('mute').execute(message, args);
+            } catch(err) {
+                console.log("Error has occured: " + err.stack);
+            const voiceErrorEmbed = new Discord.MessageEmbed()
+                .setTimestamp()
+                .setColor('#ff366b')
+                .setTitle("Sorry. A fatal error has occured!")
+                .setFooter("Voice moderation requested by " + message.author.username, message.author.displayAvatarURL())
+                message.channel.send(voiceErrorEmbed).then(deleteMessage => {
+                deleteMessage.delete({ timeout: 5000}).catch(console.error)
+            });
+            message.delete().catch(console.error);
+        }
+            
+        break;
         case 'mute':
             try {
                 if(message.member.hasPermission('MUTE_MEMBERS')) {
