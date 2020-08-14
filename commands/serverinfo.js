@@ -59,10 +59,10 @@ module.exports = {
         .addField('Numbers', [
             `**Number of Roles: **${roles.length}\n`,
             `**Number of All Emojis: **${emojis.size}\n`
-            `**Number of Regular Emojis: **${emojis.filter(emoji => !emoji.animated).size}\n`,
-            `**Number of Animated Emojis: **${emojis.filter(emoji => emoji.animated).size}\n`,
-            //`**Number of Text Channels: **${channels.filter(channel => channel.type === 'text').size}\n`,
-            //`**Number of Text Channels: **${channels.filter(channel => channel.type === 'voice').size}\n`,
+            //`**Number of Regular Emojis: **${emojis.filter(emoji => !emoji.animated).size}\n`,
+            //`**Number of Animated Emojis: **${emojis.filter(emoji => emoji.animated).size}\n`,
+            `**Number of Text Channels: **${channels.filter(channel => channel.type === 'text').size}\n`,
+            `**Number of Text Channels: **${channels.filter(channel => channel.type === 'voice').size}\n`,
             `**Number of Boosts : **${message.guild.premiumSubscriptionCount || '0'}\n`,
         ])
 
