@@ -17,13 +17,13 @@ const flags = {
 const Discord = require('discord.js');
 const invite = require('./invite');
 const moment = require('moment');
-const Util = require('util');
+
 
 module.exports = {
     name: 'userinfo',
     description: 'This command sends all information about this user.',
     execute(message, args){
-        this.utils = new Util(this);
+
         async function userinfo() {
           
             const roles = message.guild.roles.cache.sort((a,b) => b.position - a.position).map(role => role.toString()).slice(0, -1);

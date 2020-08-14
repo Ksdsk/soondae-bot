@@ -1,14 +1,14 @@
 const Discord = require('discord.js');
 const invite = require('./invite');
 const moment = require('moment');
-const Util = require('util');
+
 module.exports = {
     name: 'serverinfo',
     description: 'This command sends all information about this server.',
     execute(message, args){
 
 
-        this.utils = new Util(this);
+
         async function serverinfo() {
             let invite = await message.channel.createInvite(
             {
