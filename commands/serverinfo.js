@@ -12,13 +12,13 @@ module.exports = {
             {
               maxAge: 86400
             },
-          ).then(invitecode => { return invitecode + " " + invite })
+          ).then(invitecode => { return invitecode })
           .catch(console.log);
-            
+          
+            return invite
           }
 
         console.log(getInv())
-
 
 
         const serverInfoEmbed = new Discord.MessageEmbed()
