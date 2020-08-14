@@ -225,6 +225,39 @@ client.on('message', message => {
             }
             
         break;
+
+        case 'userinfo':
+            try {
+                try {
+                    client.commands.get('userinfo').execute(message, args);
+                } catch(err) {
+                    console.log("Error has occured: " + err.stack);
+                        const avatarErrorEmbed = new Discord.MessageEmbed()
+                            .setTimestamp()
+                            .setColor('#ff366b')
+                            .setTitle("Sorry. I couldn't send the info!")
+                            .setFooter("User Info requested by " + message.author.username, message.author.displayAvatarURL())
+                        message.channel.send(avatarErrorEmbed).then(deleteMessage => {
+                            deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                        });
+                        message.delete().catch(console.error);
+                }
+            } catch(err) {
+                console.log(err)
+                const kickErrorEmbed = new Discord.MessageEmbed()
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry. There's been a fatal error!")
+                    .setFooter("User Info requested by " + message.author.username, message.author.displayAvatarURL())
+                    message.delete().catch(console.error);
+                    message.channel.send(kickErrorEmbed).then(deleteMessage => {
+                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                    });
+            }
+            
+        break;
+
+
         // FUN STUFF
 
         // BABE
@@ -626,52 +659,7 @@ client.on('message', message => {
         }
             
         break;
-        case 'mute':
-            try {
-                if(message.member.hasPermission('MUTE_MEMBERS')) {
-                    try {
-                        client.commands.get('mute').execute(message, args);
-                    } catch(err) {
-                        console.log("Error has occured: " + err.stack);
-                    const avatarErrorEmbed = new Discord.MessageEmbed()
-                        .setTimestamp()
-                        .setColor('#ff366b')
-                        .setTitle("Sorry. I couldn't mute that user!")
-                        .setFooter("Mute requested by " + message.author.username, message.author.displayAvatarURL())
-                        message.channel.send(avatarErrorEmbed).then(deleteMessage => {
-                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                    });
-                    message.delete().catch(console.error);
-                    }
-                }
-                else {
-                    const kickErrorEmbed = new Discord.MessageEmbed()
-                    .setTimestamp()
-                    .setColor('#ff366b')
-                    .setTitle("Sorry. You do not have permissions to mute a user!")
-                    .setFooter("Mute requested by " + message.author.username, message.author.displayAvatarURL())
-                    message.delete().catch(console.error);
-                    message.channel.send(kickErrorEmbed).then(deleteMessage => {
-                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                    });
-                }
-            } catch(err) {
-                const kickErrorEmbed = new Discord.MessageEmbed()
-                    .setTimestamp()
-                    .setColor('#ff366b')
-                    .setTitle("Sorry. You do not have permissions to mute a user!")
-                    .setFooter("Mute requested by " + message.author.username, message.author.displayAvatarURL())
-                    message.delete().catch(console.error);
-                    message.channel.send(kickErrorEmbed).then(deleteMessage => {
-                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
-                    });
-                }
-            
-        break;
-    
-        // DEAFEN
-
-
+        
         // SUPER SECRET COMMANDS
 
         // SOONDAE

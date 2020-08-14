@@ -1,11 +1,14 @@
 const Discord = require('discord.js');
 const invite = require('./invite');
 const moment = require('moment');
+const Util = require('util');
 module.exports = {
     name: 'serverinfo',
     description: 'This command sends all information about this server.',
     execute(message, args){
 
+
+        this.utils = new Util(this);
         async function serverinfo() {
             let invite = await message.channel.createInvite(
             {
@@ -66,7 +69,8 @@ module.exports = {
             `**Number of Boosts : **${message.guild.premiumSubscriptionCount || '0'}`,
         ])
 
-        //.addField('Roles', [`${roles.length - 1}`], roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : "None")
+        // Comment if nec
+        .addField('Roles', [`${roles.length - 1}`], roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : "None")
         .setTimestamp()
         .setFooter("Server Info requested by " + message.author.username, message.author.displayAvatarURL())
         
