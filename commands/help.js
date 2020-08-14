@@ -325,7 +325,80 @@ module.exports = {
           message.channel.send(inviteHelpEmbed);
       }
 
+      // VOICE NONE
 
+      else if(msgArray[2] == 'voice' && !msgArray[3]) {
+        const inviteHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'voice' command")
+            .setDescription("**snd voice** is used to search voice commands! Leave <voice commands> empty to show the list of available voice commands.")
+            .addFields(
+                {name: 'Syntax', value: '```snd voice <voice commands>```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(inviteHelpEmbed);
+    }
+
+      // VOICE MUTE
+
+      else if(msgArray[2] == 'voice' && msgArray[3] == 'mute') {
+        const inviteHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'voice mute' command")
+            .setDescription("**snd voice mute** is used to mute a member in a voice channel. This command is limited to members with permissions to mute other members!")
+            .addFields(
+                {name: 'Syntax', value: '```snd voice mute <member>```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(inviteHelpEmbed);
+    }   
+    
+      // VOICE UNMUTE
+
+      else if(msgArray[2] == 'voice' && msgArray[3] == 'unmute') {
+        const inviteHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'voice unmute' command")
+            .setDescription("**snd voice unmute** is used to mute a member in a voice channel. This command is limited to members with permissions to mute other members!")
+            .addFields(
+                {name: 'Syntax', value: '```snd voice unmute <member>```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(inviteHelpEmbed);
+    }
+
+    // VOICE DEAFEN
+
+    else if(msgArray[2] == 'voice' && msgArray[3] == 'deafen') {
+      const inviteHelpEmbed = new Discord.MessageEmbed()
+          .setTimestamp()
+          .setColor('#fffc4a')
+          .setTitle("Help for 'voice deafen' command")
+          .setDescription("**snd voice deafen** is used to deafen a member in a voice channel. This command is limited to members with permissions to deafen other members!")
+          .addFields(
+              {name: 'Syntax', value: '```snd voice deafen <member>```'}
+          )
+          .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+      message.channel.send(inviteHelpEmbed);
+  }   
+
+    // VOICE UNDEAFEN
+
+    else if(msgArray[2] == 'voice' && msgArray[3] == 'undeafen') {
+      const inviteHelpEmbed = new Discord.MessageEmbed()
+          .setTimestamp()
+          .setColor('#fffc4a')
+          .setTitle("Help for 'voice undeafen' command")
+          .setDescription("**snd voice undeafen** is used to undeafen a member in a voice channel. This command is limited to members with permissions to deafen other members!")
+          .addFields(
+              {name: 'Syntax', value: '```snd voice undeafen <member>```'}
+          )
+          .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+      message.channel.send(inviteHelpEmbed);
+  }   
       // -----------------------------------------------------------------------------------------------------------------------
 
       // EVERYTHING ELSE
