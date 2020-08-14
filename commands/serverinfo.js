@@ -6,32 +6,20 @@ module.exports = {
     description: 'This command sends all information about this server.',
     execute(message, args){
 
-        async function getInv(message) {
+        async function replyWithInvite(message) {
             let invite = await message.channel.createInvite(
             {
-              maxAge: 86400
+              maxAge: 86400,
+              maxUses: 1 // maximum times it can be used
             },
+            `Requested with command by ${message.author.tag}`
           )
           .catch(console.log);
-            console.log(invite)
-            return invite
+          
+            message.reply(invite ? `Here's your invite: ${invite}` : "There has been an error during the creation of the invite.");
           }
 
-          console.log(getInv())
 
-        function inviter() {
-            message.channel.createInvite({
-                "maxAge": 86400
-            })
-                async function invite() {
-
-                console.log(invite.code)
-                return invite.code;
-            }
-            return invite()
-        }
-
-        console.log(inviter())
 
 
         const serverInfoEmbed = new Discord.MessageEmbed()
@@ -39,7 +27,7 @@ module.exports = {
         .setDescription(`Guild description: ${message.guild.description}`)
         .addFields(
             {name: "Created on:", value: `${message.guild.createdAt}`},
-            {name: "Invite link: ", value: `${inviter()}`},
+            {name: "Invite link: ", value: `invitelink here`},
             {name: "Guild ID: ", value: `${message.guild.id}`},
             {name: "Server owner: ", value: `${message.guild.owner}`},
             {name: "Region: ", value: `${message.guild.region}`},
