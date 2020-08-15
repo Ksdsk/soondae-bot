@@ -21,7 +21,7 @@ module.exports = {
             const balanceEmbed = new Discord.MessageEmbed()
             .setTimestamp()
             .setColor('#7aff81')
-            .setTitle(`${message.author.username} has ${money[message.author.id]} soondites!`)
+            .setTitle(`${message.author.username} has ${money[message.author.id].money} soondites!`)
             .setFooter("Balance of " + message.author.username, message.author.displayAvatarURL())
             message.channel.send(balanceEmbed);
         } catch(err) {
