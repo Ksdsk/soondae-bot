@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
-const money = require('./money.json')
+const money = require('./money.json/')
 const fs = require('fs');
+const { error } = require('console');
 module.exports = {
     name: 'balance',
     description: "This command sends the user's balance! ",
@@ -10,10 +11,8 @@ module.exports = {
             money[message.author.id] = {
                 name: message.author.username,
                 money: 0,
-
-
             }
-            fs.writeFile('./money.json', JSON.stringify(money)).catch(err)
+            fs.writeFile('./money.json/', JSON.stringify(money)).catch(err)
         }   
 
         try {
