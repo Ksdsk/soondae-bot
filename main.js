@@ -361,6 +361,23 @@ client.on('message', message => {
             }
         break;
 
+        case 'daily':
+            try {
+                client.commands.get('daily').execute(message, args);
+            } catch(err) {
+                console.log("Error has occured: " + err.stack);
+                const sarcasmErrorEmbed = new Discord.MessageEmbed()
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry! There was an error claiming your daily!")
+                    .setFooter("Daily requested by " + message.author.username, message.author.displayAvatarURL())
+                message.channel.send(sarcasmErrorEmbed).then(deleteMessage => {
+                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                });
+                message.delete().catch(console.error);
+            }
+        break;
+
         // GIFs
         // CHICA 
 
