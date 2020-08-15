@@ -12,7 +12,9 @@ module.exports = {
                 name: message.author.username,
                 money: 0
             }
-            fs.writeFile('../money.json/', JSON.stringify(money)).catch(err)
+            fs.writeFile('../money.json/', JSON.stringify(money), (err) => {
+                if(err) console.log(err)
+            })
         }   
 
         try {
@@ -33,6 +35,7 @@ module.exports = {
                 deleteMessage.delete({ timeout: 5000}).catch(console.error)
             });
         }
+
 
 
 
