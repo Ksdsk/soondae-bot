@@ -12,9 +12,6 @@ module.exports = {
         let timeout = 86400000;
         let dailyAmount = 300;
 
-
-
-
         if(!money[message.author.id]) {
             money[message.author.id] = {
                 name: message.author.username,
@@ -23,7 +20,6 @@ module.exports = {
             fs.writeFile('./money.json', JSON.stringify(money), (err) => {
                 if(err) console.log(err)
             })
-        
 
             if(!cooldowns[message.author.id]) {
                 cooldowns[message.author.id] = {
@@ -90,7 +86,7 @@ module.exports = {
             } else {
                 if(timeout - (Date.now()) - cooldowns[message.author.id] > 0) {
                     
-                    let time = ms(timeout - (Date.now() - cooldowns[message.author.id]));
+                    let time = ms(timeout - (Date.now() - cooldowns[message.author.id].daily));
                     console.log("Error has occured: " + err.stack);
                     const sarcasmErrorEmbed = new Discord.MessageEmbed()
                         .setTimestamp()
