@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const money = require('../money.json');
 const fs = require('fs');
-const ms = require('parse-ms')
+const ms = require('parse-ms');
 const cooldowns = require('../cooldowns.json');
 
 module.exports = {
@@ -48,7 +48,7 @@ module.exports = {
                 const balErrorEmbed = new Discord.MessageEmbed()
                 .setTimestamp()
                 .setColor('#ff366b')
-                .setTitle("Sorry. There was an error checking your balance!")
+                .setTitle("Sorry. There was an error claiming your daily!")
                 .setFooter("Daily requested by " + message.author.username, message.author.displayAvatarURL())
                 message.delete().catch(console.error);
                 message.channel.send(balErrorEmbed).then(deleteMessage => {
