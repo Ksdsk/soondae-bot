@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const money = require('../money.json/')
+const money = require('../money.json');
 const fs = require('fs');
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
         if(!money[message.author.id]) {
             money[message.author.id] = {
                 name: message.author.username,
-                money: 0,
+                money: 0
             }
             fs.writeFile('../money.json/', JSON.stringify(money)).catch(err)
         }   
