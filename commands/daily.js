@@ -27,7 +27,7 @@ module.exports = {
             if(!cooldowns[message.author.id]) {
                 cooldowns[message.author.id] = {
                     name: message.author.username,
-                    daily = Date.now()
+                    daily: Date.now()
                 }
                 fs.writeFile("./cooldowns.json", JSON.stringify(cooldowns), (err) => {
                     if(err) console.log(err)
@@ -65,7 +65,7 @@ module.exports = {
             if(!cooldowns[message.author.id]) {
                 cooldowns[message.author.id] = {
                     name: message.author.username,
-                    daily = Date.now()
+                    daily: Date.now()
                 }
                 fs.writeFile("./cooldowns.json", JSON.stringify(cooldowns), (err) => {
                     if(err) console.log(err)
