@@ -34,7 +34,7 @@ module.exports = {
                                 .setColor('#ff366b')
                                 .setTitle(`Cannot kick ${user.username}!`)
                                 .setDescription('This is most likely due to **soondae.gg** role having a lower role hierarchy. You can fix this by putting soondae.gg in the highest role!')
-                                .setFooter("Kicked by " + message.author.username, message.author.displayAvatarURL())
+                                .setFooter("Kick requested " + message.author.username, message.author.displayAvatarURL())
                                 message.channel.send(avatarEmbed);
                             }
                         } catch(err) {
