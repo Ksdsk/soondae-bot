@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const money = require('../money.json');
 const fs = require('fs');
 const ms = require('parse-ms')
+const cooldowns = require('../cooldowns.json');
 
 module.exports = {
     name: 'daily',
