@@ -14,16 +14,16 @@ module.exports = {
 
         if(!money[message.author.id]) {
             money[message.author.id] = {
-                name: message.author.username,
+                name: message.author.tag,
                 money: dailyAmount
             }
             fs.writeFile('./money.json', JSON.stringify(money), (err) => {
                 if(err) console.log(err)
-            })
+            });
 
             if(!cooldowns[message.author.id]) {
                 cooldowns[message.author.id] = {
-                    name: message.author.username,
+                    name: message.author.tag,
                     daily: Date.now()
                 }
                 fs.writeFile("./cooldowns.json", JSON.stringify(cooldowns), (err) => {
@@ -61,7 +61,7 @@ module.exports = {
 
             if(!cooldowns[message.author.id]) {
                 cooldowns[message.author.id] = {
-                    name: message.author.username,
+                    name: message.author.tag,
                     daily: Date.now()
                 }
                 fs.writeFile("./cooldowns.json", JSON.stringify(cooldowns), (err) => {
@@ -84,17 +84,17 @@ module.exports = {
 
 
             } else {
-                if(timeout - (Date.now()) - cooldowns[message.author.id] > 0) {
+                if(timeout - (Date.now() - cooldowns[message.author.id]) > 0) {
                     
                     let time = ms(timeout - (Date.now() - cooldowns[message.author.id].daily));
                     console.log("Error has occured: " + err.stack);
-                    const sarcasmErrorEmbed = new Discord.MessageEmbed()
+                    const ErrorEmbed = new Discord.MessageEmbed()
                         .setTimestamp()
                         .setColor('#ff366b')
                         .setTitle("Daily already claimed!")
                         .setDescription(`Collect it again in **${time.hours}hr ${time.minutes}min ${time.seconds}sec**!`)
                         .setFooter("Daily requested by " + message.author.username, message.author.displayAvatarURL())
-                    message.channel.send(sarcasmErrorEmbed).then(deleteMessage => {
+                    message.channel.send(ErrorEmbed).then(deleteMessage => {
                         deleteMessage.delete({ timeout: 5000}).catch(console.error)
                     });
                     message.delete().catch(console.error);

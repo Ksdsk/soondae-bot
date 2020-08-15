@@ -9,7 +9,7 @@ module.exports = {
         
         if(!money[message.author.id]) {
             money[message.author.id] = {
-                name: message.author.username,
+                name: message.author.tag,
                 money: 0
             }
             fs.writeFile('./money.json', JSON.stringify(money), (err) => {
