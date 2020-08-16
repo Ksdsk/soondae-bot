@@ -19,7 +19,7 @@ module.exports = {
             { name: "Prefix", value: "The prefix is hardcoded as `snd`. Please be aware!"},
             { name: "🔨 | Tools", value: "```avatar``````help``````invite``````poll``````serverinfo``````userinfo```"},
             { name: "😜 | Fun Stuff", value: "```babe``````ping``````magic``````sarcasm```"},
-            { name: "💥 | GIFs", value: "```chica``````chico``````ohayo``````oof``````uwu```"},
+            { name: "💥 | GIFs", value: "```chica``````chico``````ohayo``````oof``````uwu``````tea```"},
             { name: "🦾 | Moderation", value: "```kick``````ban``````unban``````voice```"},
             { name: "🌀 | Other", value: "```invitebot```"}
           )
