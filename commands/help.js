@@ -19,7 +19,7 @@ module.exports = {
             { name: "Prefix", value: "The prefix is hardcoded as `snd`. Please be aware!"},
             { name: "🔨 | Tools", value: "```avatar``````help``````invite``````poll``````serverinfo``````userinfo```"},
             { name: "😜 | Fun Stuff", value: "```babe``````ping``````magic``````sarcasm```"},
-            { name: "💥 | GIFs", value: "```chica``````chico``````ohayo``````oof``````uwu``````tea```"},
+            { name: "💥 | GIFs", value: "```chica``````chico``````ohayo``````oof``````uwu``````tea``````dito```"},
             { name: "🦾 | Moderation", value: "```kick``````ban``````unban``````voice```"},
             { name: "🌀 | Other", value: "```invitebot```"}
           )
@@ -257,6 +257,20 @@ module.exports = {
           message.channel.send(oofHelpEmbed);
               }
 
+                    // DITO HELP
+
+      else if(msgArray[2] == 'dito') {
+        const oofHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'dito' command")
+            .setDescription("**snd dito** spits out a random GIF file about dito!")
+            .addFields(
+                {name: 'Syntax', value: '```snd dito```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(oofHelpEmbed);
+            }
       // -----------------------------------------------------------------------------------------------------------------------
       
       // OTHER HELP

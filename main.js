@@ -493,6 +493,25 @@ client.on('message', message => {
             }
         break;
 
+            // DITO
+
+        case 'dito':
+            try {
+                client.commands.get('dito').execute(message, args);
+            } catch(err) {
+                console.log("Error has occured: " + err.stack);
+                const gifErrorEmbed = new Discord.MessageEmbed()
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry. I couldn't show you the GIF!")
+                    .setFooter("GIF requested by " + message.author.username, message.author.displayAvatarURL())
+                message.channel.send(gifErrorEmbed).then(deleteMessage => {
+                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                });
+                message.delete().catch(console.error);
+            }
+        break;
+
         // OTHER STUFF
 
         // INVITEBOT
