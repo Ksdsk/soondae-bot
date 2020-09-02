@@ -19,7 +19,7 @@ module.exports = {
         userTikTok = "none"
         userLIN = "none"
 
-        const filter = m => m.author.id === message.author.id;
+        const filter = m => (m.author.id === message.author.id) && (!m.author.bot);
 
         function cQ(userInsta, userSC, userHouseParty, userTikTok, userLIN) {
             const fReq = new Discord.MessageEmbed()
