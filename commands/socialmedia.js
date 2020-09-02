@@ -10,12 +10,19 @@ module.exports = {
 
 
 
-            var instaUser;
-            var scUser;
-            var linkedinUser;
-            var hpUser;
-            var tiktokUser;
-            var YouTubeUser;
+            var instaUser = "none";
+            var scUser = "none";
+            var linkedinUser = "none";
+            var hpUser = "none";
+            var tiktokUser = "none";
+            var YouTubeUser = "none";
+            var instaf = true
+            var scf = false
+            var linkedinf = false
+            var hpf = false
+            var tiktokf = false
+            var youtubef = false
+            var finalizing
 
             async function instaq() {
 
@@ -24,7 +31,10 @@ module.exports = {
                 try {
                     await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
                         {
-                            instaUser = collected.first().content
+                            instaUser = collected.first().content;
+                            
+                            scf = true;
+                            
                         });
 
                 }
@@ -41,7 +51,8 @@ module.exports = {
                 try {
                     await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
                         {
-                            scUser = collected.first().content
+                            scUser = collected.first().content;
+                            linkedinf = true;
                         });
 
                 }
@@ -57,6 +68,7 @@ module.exports = {
                     await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
                         {
                             linkedinUser = collected.first().content
+                            tiktokf = true
                         });
 
                 }
@@ -72,6 +84,8 @@ module.exports = {
                     await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
                         {
                             hpUser = collected.first().content
+                            youtubef = true
+
                         });
 
                 }
@@ -88,6 +102,7 @@ module.exports = {
                     await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
                         {
                             tiktokUser = collected.first().content
+                            hpf = true
                         });
 
                 }
@@ -104,6 +119,7 @@ module.exports = {
                     await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
                         {
                             YouTubeUser = collected.first().content
+                            finalizing = true
                         });
 
                 }
@@ -111,12 +127,40 @@ module.exports = {
                     message.channel.send("You did not specify your username on time");
                 }
             }
-            instaq();
+            var instaf = false
+            var scf = false
+            while (instaf === false) {
+                instaq();
+
+            } 
+
             scq();
             tiktokq();
             ytq();
             housepartyq();
             linkedinq();
 
+            if (instaf == true) {
+                instaq();
+            }
+            if (scf == true) {
+                scq();
+            }
+            if (linkedinf == true) {
+                linkedinq();
+            }
+            if (tiktokf == true) {
+                tiktokq();
+            }
+            if (hpf == true) {
+                housepartyq();
+            }
+            if (youtubef == true) {
+                ytq();
+            }
+            
+            if (finalizing == true) {
+                message.channel.send(instaUser + scUser + linkedinUser + tiktokUser + hpUser + YouTubeUser);
+            }
         }
 }
