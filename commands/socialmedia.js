@@ -75,24 +75,28 @@ module.exports = {
             )
             .setFooter("Social media requested by: " + message.author.username, message.author.displayAvatarURL())
   
-            message.channel.send(instaReq).then(r => r.delete(20000));
-
+            message.channel.send(instaReq).then(r => r.delete(20000)).then(() =>
+            
             message.channnel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
-              if (collected == "cancel") {
-                const cancelRq = new Discord.MessageEmbed()
-                .setTimestamp()
-                .setColor('#4af3ff')
-                .setTitle(`Successfully cancelled the request!`)
-                .setFooter("Cancel requested by: " + message.author.username, message.author.displayAvatarURL())
-                message.channel.send(cancelRq)
-              } else if (collected == "skip") {
-                  userInsta = "none"
-              }
-              else {
-                userInsta = collected
-              }
-            }).catch(err => console.log(err))
+                if (collected == "cancel") {
+                  const cancelRq = new Discord.MessageEmbed()
+                  .setTimestamp()
+                  .setColor('#4af3ff')
+                  .setTitle(`Successfully cancelled the request!`)
+                  .setFooter("Cancel requested by: " + message.author.username, message.author.displayAvatarURL())
+                  message.channel.send(cancelRq)
+                } else if (collected == "skip") {
+                    userInsta = "none"
+                }
+                else {
+                  userInsta = collected
+                }
+              }).catch(err => console.log(err))
+  
+            
+            );
 
+           
 
             // SC
             const scReq = new Discord.MessageEmbed()
