@@ -41,7 +41,7 @@ module.exports = {
             message.channel.send(fReq);
 
             message.channnel.awaitMessages(filter, {max: 1, time: 20000, errors: ['cancel']}).then(collected => {
-              if (collected == "true") {
+              if ( collected.first().content === "true") {
                 const cancelRq = new Discord.MessageEmbed()
                 .setTimestamp()
                 .setColor('#4af3ff')
@@ -58,7 +58,7 @@ module.exports = {
 
                 message.channel.send(cancelRq)
                 qDone = true
-              } else if (collected == "false") {
+              } else if ( collected.first().content === "false") {
                   socialMedia();
               }
             }).catch(err => console.log(err))
@@ -83,14 +83,14 @@ module.exports = {
             message.channel.send(instaReq).then(() =>
             
             message.channnel.awaitMessages(filter, {max: 1, time: 20000, errors: ['cancel']}).then(collected => {
-                if (collected == "cancel") {
+                if ( collected.first().content == "cancel") {
                   const cancelRq = new Discord.MessageEmbed()
                   .setTimestamp()
                   .setColor('#4af3ff')
                   .setTitle(`Successfully cancelled the request!`)
                   .setFooter("Cancel requested by: " + message.author.username, message.author.displayAvatarURL())
                   message.channel.send(cancelRq)
-                } else if (collected == "skip") {
+                } else if ( collected.first().content == "skip") {
                     userInsta = "none"
                 }
                 else {
@@ -117,14 +117,14 @@ module.exports = {
   
             message.channel.send(scReq).then(() => {
                 message.channnel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
-                    if (collected == "cancel") {
+                    if ( collected.first().content == "cancel") {
                       const cancelRq = new Discord.MessageEmbed()
                       .setTimestamp()
                       .setColor('#4af3ff')
                       .setTitle(`Successfully cancelled the request!`)
                       .setFooter("Cancel requested by: " + message.author.username, message.author.displayAvatarURL())
                       message.channel.send(cancelRq)
-                    } else if (collected == "skip") {
+                    } else if ( collected.first().content == "skip") {
                         userSC = "none"
                     }
                     else {
