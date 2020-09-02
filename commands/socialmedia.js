@@ -127,18 +127,6 @@ module.exports = {
                     message.channel.send("You did not specify your username on time");
                 }
             }
-            var instaf = false
-            var scf = false
-            while (instaf === false) {
-                instaq();
-
-            } 
-
-            scq();
-            tiktokq();
-            ytq();
-            housepartyq();
-            linkedinq();
 
             if (instaf == true) {
                 instaq();
