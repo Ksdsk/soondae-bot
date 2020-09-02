@@ -63,7 +63,7 @@ module.exports = {
 
 
 
-        async function socialMedia() {
+        function socialMedia() {
             const instaReq = new Discord.MessageEmbed()
             .setTimestamp()
             .setColor('#4af3ff')
