@@ -28,12 +28,17 @@ module.exports = {
             .setTitle("Is this the right info?")
             .setDescription(`This will expire in 60 seconds`)
             .addFields(
+                {name: "Instagram", value: `${userInsta}`},
+                {name: "Snapchat", value: `${userSC}`},
+                {name: "Houseparty", value: `${userHouseParty}`},
+                {name: "TikTok", value: `${userTikTok}`},
+                {name: "LinkedIn", value: `${userLIN}`},
               { name: "True", value: "Type 'true' if the given information is correct!"},
               { name: "False", value: "Type 'false' if the given information is false, and you would like to restart!"}
             )
             .setFooter("Social media requested by: " + message.author.username, message.author.displayAvatarURL())
   
-            message.channel.send(fReq).then(r => r.delete(20000));
+            message.channel.send(fReq);
 
             message.channnel.awaitMessages(filter, {max: 1, time: 20000, errors: ['cancel']}).then(collected => {
               if (collected == "true") {
@@ -75,7 +80,7 @@ module.exports = {
             )
             .setFooter("Social media requested by: " + message.author.username, message.author.displayAvatarURL())
   
-            message.channel.send(instaReq).then(r => r.delete(20000)).then(() =>
+            message.channel.send(instaReq).then(() =>
             
             message.channnel.awaitMessages(filter, {max: 1, time: 20000, errors: ['cancel']}).then(collected => {
                 if (collected == "cancel") {
@@ -110,7 +115,7 @@ module.exports = {
             )
             .setFooter("Social media requested by: " + message.author.username, message.author.displayAvatarURL())
   
-            message.channel.send(scReq).then(r => r.delete(20000)).then(() => {
+            message.channel.send(scReq).then(() => {
                 message.channnel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
                     if (collected == "cancel") {
                       const cancelRq = new Discord.MessageEmbed()
