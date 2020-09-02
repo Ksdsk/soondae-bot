@@ -35,7 +35,7 @@ module.exports = {
   
             message.channel.send(fReq).then(r => r.delete(20000));
 
-            message.channnel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
+            message.channnel.awaitMessages(filter, {max: 1, time: 20000, errors: ['cancel']}).then(collected => {
               if (collected == "true") {
                 const cancelRq = new Discord.MessageEmbed()
                 .setTimestamp()
@@ -77,7 +77,7 @@ module.exports = {
   
             message.channel.send(instaReq).then(r => r.delete(20000)).then(() =>
             
-            message.channnel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
+            message.channnel.awaitMessages(filter, {max: 1, time: 20000, errors: ['cancel']}).then(collected => {
                 if (collected == "cancel") {
                   const cancelRq = new Discord.MessageEmbed()
                   .setTimestamp()
