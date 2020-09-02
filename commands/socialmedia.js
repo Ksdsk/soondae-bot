@@ -21,7 +21,7 @@ module.exports = {
 
         const filter = m => m.author.id === message.author.id;
 
-        function cQ(userInsta, userSC, userHouseParty, userTikTok, userLIN) {
+        async function cQ(userInsta, userSC, userHouseParty, userTikTok, userLIN) {
             const fReq = new Discord.MessageEmbed()
             .setTimestamp()
             .setColor('#4af3ff')
@@ -63,7 +63,7 @@ module.exports = {
 
 
 
-        function socialMedia() {
+        async function socialMedia() {
             const instaReq = new Discord.MessageEmbed()
             .setTimestamp()
             .setColor('#4af3ff')
@@ -123,6 +123,8 @@ module.exports = {
                 userSC = collected
               }
             }).catch(err => console.log(err))
+
+            cQ();
         }
 
         while(qDone == false) {
