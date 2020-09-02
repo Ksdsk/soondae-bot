@@ -34,6 +34,7 @@ module.exports = {
                             instaUser = collected.first().content;
                             
                             scf = true;
+                            instaf = false;
                             
                         });
 
@@ -53,6 +54,7 @@ module.exports = {
                         {
                             scUser = collected.first().content;
                             linkedinf = true;
+                            scf = false;
                         });
 
                 }
@@ -69,6 +71,7 @@ module.exports = {
                         {
                             linkedinUser = collected.first().content
                             tiktokf = true
+                            linkedinf = false;
                         });
 
                 }
@@ -85,6 +88,7 @@ module.exports = {
                         {
                             hpUser = collected.first().content
                             youtubef = true
+                            hpf = false;
 
                         });
 
@@ -103,6 +107,7 @@ module.exports = {
                         {
                             tiktokUser = collected.first().content
                             hpf = true
+                            tiktokf = false
                         });
 
                 }
@@ -120,6 +125,7 @@ module.exports = {
                         {
                             YouTubeUser = collected.first().content
                             finalizing = true
+                            youtubef = false
                         });
 
                 }
@@ -128,26 +134,26 @@ module.exports = {
                 }
             }
 
-            if (instaf == true) {
+            while (instaf == true) {
                 instaq();
             }
-            if (scf == true) {
+            while (scf == true) {
                 scq();
             }
-            if (linkedinf == true) {
+            while (linkedinf == true) {
                 linkedinq();
             }
-            if (tiktokf == true) {
+            while (tiktokf == true) {
                 tiktokq();
             }
-            if (hpf == true) {
+            while (hpf == true) {
                 housepartyq();
             }
-            if (youtubef == true) {
+            while (youtubef == true) {
                 ytq();
             }
             
-            if (finalizing == true) {
+            while (finalizing == true) {
                 message.channel.send(instaUser + scUser + linkedinUser + tiktokUser + hpUser + YouTubeUser);
             }
         }
