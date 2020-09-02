@@ -21,7 +21,7 @@ module.exports = {
 
         const filter = m => m.author.id === message.author.id;
 
-        async function cQ(userInsta, userSC, userHouseParty, userTikTok, userLIN) {
+        function cQ(userInsta, userSC, userHouseParty, userTikTok, userLIN) {
             const fReq = new Discord.MessageEmbed()
             .setTimestamp()
             .setColor('#4af3ff')
