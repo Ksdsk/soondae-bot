@@ -69,6 +69,12 @@ module.exports = {
 
 
         function socialMedia() {
+
+            instagram();
+            snapchat();
+            cQ();
+        }
+        function instagram() {
             const instaReq = new Discord.MessageEmbed()
             .setTimestamp()
             .setColor('#4af3ff')
@@ -100,44 +106,40 @@ module.exports = {
   
             
             );
+        }
 
-           
+        function snapchat() {
+// SC
+const scReq = new Discord.MessageEmbed()
+.setTimestamp()
+.setColor('#4af3ff')
+.setTitle(`Please enter your username for SNAPCHAT`)
+.setDescription(`This will expire in 20 seconds.`)
+.addFields(
+{ name: "Cancel", value: "Type 'cancel' to halt this command!"},
+{ name: "Don't have an account for this social media?", value: "Type 'skip' to skip this social media!"}
+)
+.setFooter("Social media requested by: " + message.author.username, message.author.displayAvatarURL())
 
-            // SC
-            const scReq = new Discord.MessageEmbed()
-            .setTimestamp()
-            .setColor('#4af3ff')
-            .setTitle(`Please enter your username for SNAPCHAT`)
-            .setDescription(`This will expire in 20 seconds.`)
-            .addFields(
-              { name: "Cancel", value: "Type 'cancel' to halt this command!"},
-              { name: "Don't have an account for this social media?", value: "Type 'skip' to skip this social media!"}
-            )
-            .setFooter("Social media requested by: " + message.author.username, message.author.displayAvatarURL())
-  
-            message.channel.send(scReq).then(() => {
-                message.channnel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
-                    if ( collected.first().content == "cancel") {
-                      const cancelRq = new Discord.MessageEmbed()
-                      .setTimestamp()
-                      .setColor('#4af3ff')
-                      .setTitle(`Successfully cancelled the request!`)
-                      .setFooter("Cancel requested by: " + message.author.username, message.author.displayAvatarURL())
-                      message.channel.send(cancelRq)
-                    } else if ( collected.first().content == "skip") {
-                        userSC = "none"
-                    }
-                    else {
-                      userSC = collected
-                    }
-                  }).catch(err => console.log(err))
-            }
-            
-            );
+message.channel.send(scReq).then(() => {
+ message.channnel.awaitMessages(filter, {max: 1, time: 20000}).then(collected => {
+     if ( collected.first().content == "cancel") {
+       const cancelRq = new Discord.MessageEmbed()
+       .setTimestamp()
+       .setColor('#4af3ff')
+       .setTitle(`Successfully cancelled the request!`)
+       .setFooter("Cancel requested by: " + message.author.username, message.author.displayAvatarURL())
+       message.channel.send(cancelRq)
+     } else if ( collected.first().content == "skip") {
+         userSC = "none"
+     }
+     else {
+       userSC = collected
+     }
+   }).catch(err => console.log(err))
+}
 
-         
-
-            cQ();
+);
         }
 
         while(qDone == false) {
