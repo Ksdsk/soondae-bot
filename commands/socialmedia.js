@@ -29,7 +29,8 @@ module.exports = {
                 try {
                     await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
                         {
-                            instaUser = collected.first().content;                            
+                            instaUser = collected.first().content;
+                            message.channel.send(`${instaUser}`);                            
                         });
 
                 }
@@ -40,6 +41,6 @@ module.exports = {
 
 
             instaq();
-            message.channel.send(`${instaUser}`);
+        
         }
 }
