@@ -47,9 +47,7 @@ module.exports = {
                                 throw "exit";
                             }     
                         });
-                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+
 
                 }
                 catch(ex) {
@@ -85,9 +83,7 @@ module.exports = {
                                 throw "exit";
                             }                 
                         });
-                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+
                 }
                 catch(ex) {
                     if(ex == "exit") {
@@ -123,9 +119,7 @@ module.exports = {
                                 throw "exit";
                             }                       
                         });
-                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+
                 }
                 catch(ex) {
                     if(ex == "exit") {
@@ -160,9 +154,7 @@ module.exports = {
                                     throw "exit";
                                 }                    
                             });
-                            await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
-                                message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                            )});
+
                     }
                     catch(ex) {
                         if(ex == "exit") {
@@ -198,9 +190,7 @@ module.exports = {
                                 throw "exit";
                             }                      
                         });
-                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+
                 }
                 catch(ex) {
                     if(ex == "exit") {
@@ -235,9 +225,7 @@ module.exports = {
                                 throw "exit";
                             }                       
                         });
-                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+
                 }
                 catch(ex) {
                     if(ex == "exit") {
@@ -288,11 +276,15 @@ module.exports = {
                                 });;
                                 throw "exit";
                                 
-                            }            
-                            else if (finalizedAns == "yes") {
-                                await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
-                                    message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                                )});
+                            }    
+
+                            await message.channel.messages.fetch({ limit: 14 }).then(messages => { // Fetches the messages
+                                message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                            )});    
+                                
+                            if (finalizedAns == "yes") {
+
+
                                 var finalEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
                                 .setColor('#4af3ff')
@@ -307,7 +299,8 @@ module.exports = {
                                   )
                                 .setFooter("Bio of " + message.author.username, message.author.displayAvatarURL())
                                 message.channel.send(finalEmbed)
-                            }         
+                            }
+                            
                         });
 
                 }
