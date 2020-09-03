@@ -13,7 +13,7 @@ module.exports = {
         var instaUser = "null"
         var snapUser = "null"
         var linkedinUser = "null"
-
+        var finalizedAns = "null"
         var errorEmbed = new Discord.MessageEmbed()
         .setTimestamp()
         .setColor('#ff366b')
@@ -276,7 +276,7 @@ module.exports = {
                             if (linkedinUser == "none") {
                                 linkedinUser = "N/A"
                             }
-                            var finalizedAns = collected.first().content;   
+                            finalizedAns = collected.first().content;   
                             if (finalizedAns == "cancel") {
                                 var cancelEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
@@ -308,21 +308,32 @@ module.exports = {
                 )});         
                 if (finalizedAns == "yes") {
 
-                    var finalEmbed = new Discord.MessageEmbed()
-                    .setTimestamp()
-                    .setColor('#4af3ff')
-                    .setTitle(`${message.author.username}'s Bio!`)
-                    .setDescription(bioUser)
-                    .addFields(
-                        { name: "Name", value: nameUser},
-                        { name: "Instagram", value: instaUser},
-                        { name: "Snapchat", value: snapUser},
-                        { name: "Houseparty", value: housepartyUser},
-                        { name: "LinkedIn", value: linkedinUser}
-                        )
-                    .setFooter("Bio of " + message.author.username, message.author.displayAvatarURL())
-                    message.channel.send(finalEmbed)
-                }     
+                    try {
+                        var finalEmbed = new Discord.MessageEmbed()
+                        .setTimestamp()
+                        .setColor('#4af3ff')
+                        .setTitle(`${message.author.username}'s Bio!`)
+                        .setDescription(bioUser)
+                        .addFields(
+                            { name: "Name", value: nameUser},
+                            { name: "Instagram", value: instaUser},
+                            { name: "Snapchat", value: snapUser},
+                            { name: "Houseparty", value: housepartyUser},
+                            { name: "LinkedIn", value: linkedinUser}
+                            )
+                        .setFooter("Bio of " + message.author.username, message.author.displayAvatarURL())
+                        message.channel.send(finalEmbed)
+                    } catch(ex) {
+                        if(ex == "exit") {
+                            return;
+                        }
+                        else {
+                            message.channel.send(errorEmbed)
+                        }
+                        return;
+                    }
+                }
+
             
 
 
