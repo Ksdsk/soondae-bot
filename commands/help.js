@@ -131,12 +131,12 @@ module.exports = {
     }
 
     // INTRO
-    else if(msgArray[2] == 'userinfo') {
+    else if(msgArray[2] == 'intro') {
         const oofHelpEmbed = new Discord.MessageEmbed()
             .setTimestamp()
             .setColor('#fffc4a')
             .setTitle("Help for 'intro' command")
-            .setDescription("**snd intro** will take in your inputs and upload an Embed compiled of your data! Warning: Please do not enter **snd intro** during the intro set-up. If you would like to restart, please type in 'cancel' first, THEN re-type **snd intro**.")
+            .setDescription("**snd intro** will take in your inputs and upload an Embed compiled of your data! Warning: Please do not enter **snd intro** during the intro set-up. If you would like to restart, please type in 'cancel' first, THEN re-type **snd intro**. **PLEASE USE THIS COMMAND ONE PERSON AT A TIME**!")
             .addFields(
                 {name: 'Syntax', value: '```snd intro```'}
             )
