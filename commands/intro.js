@@ -8,6 +8,12 @@ module.exports = {
     description: 'This command uploads social media of the user given each argument',
     execute(message, args){
 
+        async function delfirstmsg(){
+            await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
+                message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+            )});
+        }
+
         var nameUser = "null"
         var bioUser = "null"
         var instaUser = "null"
@@ -54,6 +60,9 @@ module.exports = {
                 }
                 catch(ex) {
                     if(ex == "exit") {
+                        await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
                         return;
                     }
                     else {
@@ -91,6 +100,9 @@ module.exports = {
                 }
                 catch(ex) {
                     if(ex == "exit") {
+                        await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
                         return;
                     }
                     else {
@@ -129,6 +141,9 @@ module.exports = {
                 }
                 catch(ex) {
                     if(ex == "exit") {
+                        await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
                         return;
                     }
                     else {
@@ -166,6 +181,9 @@ module.exports = {
                     }
                     catch(ex) {
                         if(ex == "exit") {
+                            await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
+                                message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                            )});
                             return;
                         }
                         else {
@@ -204,7 +222,11 @@ module.exports = {
                 }
                 catch(ex) {
                     if(ex == "exit") {
+                        await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
                         return;
+                        
                     }
                     else {
                         message.channel.send(errorEmbed)
@@ -241,6 +263,9 @@ module.exports = {
                 }
                 catch(ex) {
                     if(ex == "exit") {
+                        await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
                         return;
                     }
                     else {
@@ -276,6 +301,9 @@ module.exports = {
                             if (linkedinUser == "none") {
                                 linkedinUser = "N/A"
                             }
+                            if(housepartyUser == "none") {
+                                housepartyUser = "N/A"
+                            }
                             finalizedAns = collected.first().content;   
                             if (finalizedAns == "cancel") {
                                 var cancelEmbed = new Discord.MessageEmbed()
@@ -296,6 +324,9 @@ module.exports = {
 
                 }catch(ex) {
                     if(ex == "exit") {
+                        await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
                         return;
                     }
                     else {
@@ -338,6 +369,7 @@ module.exports = {
 
 
         }
+        delfirstmsg();
         instaq();
     }
 }
