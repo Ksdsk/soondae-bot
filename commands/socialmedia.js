@@ -39,7 +39,6 @@ module.exports = {
                 }
 
                 message.channel.send("Enter your name");
-                let filter = m => (m.author.id === message.author.id);
                 try {
                     await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
                         {
