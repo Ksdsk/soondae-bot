@@ -114,6 +114,35 @@ module.exports = {
             .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
         message.channel.send(oofHelpEmbed);
     }
+
+    // USERINFO
+
+    else if(msgArray[2] == 'userinfo') {
+        const oofHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'userinfo' command")
+            .setDescription("**snd userinfo** sends a detailed info about a user in the server.")
+            .addFields(
+                {name: 'Syntax', value: '```snd userinfo <tagged member>```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(oofHelpEmbed);
+    }
+
+    // INTRO
+    else if(msgArray[2] == 'userinfo') {
+        const oofHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'intro' command")
+            .setDescription("**snd intro** will take in your inputs and upload an Embed compiled of your data! Warning: Please do not enter **snd intro** during the intro set-up. If you would like to restart, please type in 'cancel' first, THEN re-type **snd intro**.")
+            .addFields(
+                {name: 'Syntax', value: '```snd intro```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(oofHelpEmbed);
+    }
       // -----------------------------------------------------------------------------------------------------------------------
 
       // FUN HELP
