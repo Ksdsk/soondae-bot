@@ -36,13 +36,14 @@ module.exports = {
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
                                 message.channel.send(cancelEmbed);
-                                return;
+                                throw "exit";
                             }     
                         });
 
                 }
                 catch(ex) {
                     message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    return;
                 }
 
                 var descEmbed = new Discord.MessageEmbed()
@@ -63,13 +64,14 @@ module.exports = {
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
                                 message.channel.send(cancelEmbed);
-                                return;
+                                throw "exit";
                             }                 
                         });
 
                 }
                 catch(ex) {
                     message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    return;
                 }
 
 
@@ -91,13 +93,14 @@ module.exports = {
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
                                 message.channel.send(cancelEmbed);
-                                return;
+                                throw "exit";
                             }                       
                         });
 
                 }
                 catch(ex) {
                     message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    return;
                 }
 
                 var snapEmbed = new Discord.MessageEmbed()
@@ -118,13 +121,14 @@ module.exports = {
                                     .setTitle(`Successfully quit!`)
                                     .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
                                     message.channel.send(cancelEmbed);
-                                    return;
+                                    throw "exit";
                                 }                    
                             });
 
                     }
                     catch(ex) {
                         message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                        return;
                     }
                 
 
@@ -146,13 +150,14 @@ module.exports = {
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
                                 message.channel.send(cancelEmbed);
-                                return;
+                                throw "exit";
                             }                      
                         });
 
                 }
                 catch(ex) {
                     message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    return;
                 }
 
                 var linkedinEmbed = new Discord.MessageEmbed()
@@ -173,13 +178,14 @@ module.exports = {
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
                                 message.channel.send(cancelEmbed);
-                                return;
+                                throw "exit";
                             }                       
                         });
 
                 }
                 catch(ex) {
                     message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    return;
                 }
 
                 var qfinalEmbed = new Discord.MessageEmbed()
@@ -208,7 +214,7 @@ module.exports = {
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
                                 message.channel.send(cancelEmbed);
-                                return;
+                                throw "exit";
                             }            
                             else if (finalizedAns == "yes") {
                                 var finalEmbed = new Discord.MessageEmbed()
@@ -231,6 +237,7 @@ module.exports = {
                 }
                 catch(ex) {
                     message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    return;
                 }
             }
             instaq();
