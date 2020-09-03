@@ -37,6 +37,20 @@ module.exports = {
                 catch(ex) {
                     message.channel.send("You did not specify your username on time");
                 }
+
+                message.channel.send("Enter your name");
+                let filter = m => (m.author.id === message.author.id);
+                try {
+                    await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
+                        {
+                            instaUser = collected.first().content;
+                            message.channel.send(`${instaUser}`);                            
+                        });
+
+                }
+                catch(ex) {
+                    message.channel.send("You did not specify your username on time");
+                }
             }
 
 
