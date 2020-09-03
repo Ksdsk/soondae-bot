@@ -8,8 +8,6 @@ module.exports = {
     description: 'This command uploads social media of the user given each argument',
     execute(message, args){
 
-
-
             var instaUser = "none";
             var scUser = "none";
             var linkedinUser = "none";
@@ -22,7 +20,7 @@ module.exports = {
             var hpf = false
             var tiktokf = false
             var youtubef = false
-            var finalizing
+            var finalizing = false
 
             async function instaq() {
 
@@ -45,116 +43,11 @@ module.exports = {
             }
 
 
-            async function scq() {
-
-                message.channel.send("Enter your name");
-                let filter = m => (m.author.id === message.author.id);
-                try {
-                    await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
-                        {
-                            scUser = collected.first().content;
-                            linkedinf = true;
-                            scf = false;
-                        });
-
-                }
-                catch(ex) {
-                    message.channel.send("You did not specify your username on time");
-                }
-            }
-            async function linkedinq() {
-
-                message.channel.send("Enter your name");
-                let filter = m => (m.author.id === message.author.id);
-                try {
-                    await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
-                        {
-                            linkedinUser = collected.first().content
-                            tiktokf = true
-                            linkedinf = false;
-                        });
-
-                }
-                catch(ex) {
-                    message.channel.send("You did not specify your username on time");
-                }
-            }
-            async function housepartyq() {
-
-                message.channel.send("Enter your name");
-                let filter = m => (m.author.id === message.author.id);
-                try {
-                    await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
-                        {
-                            hpUser = collected.first().content
-                            youtubef = true
-                            hpf = false;
-
-                        });
-
-                }
-                catch(ex) {
-                    message.channel.send("You did not specify your username on time");
-                }
-            }
-
-            async function tiktokq() {
-
-                message.channel.send("Enter your name");
-                let filter = m => (m.author.id === message.author.id);
-                try {
-                    await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
-                        {
-                            tiktokUser = collected.first().content
-                            hpf = true
-                            tiktokf = false
-                        });
-
-                }
-                catch(ex) {
-                    message.channel.send("You did not specify your username on time");
-                }
-            }
-
-            async function ytq() {
-
-                message.channel.send("Enter your name");
-                let filter = m => (m.author.id === message.author.id);
-                try {
-                    await message.channel.awaitMessages(filter, { max: 1, time: '10000', errors: ['time'] }).then(collected =>
-                        {
-                            YouTubeUser = collected.first().content
-                            finalizing = true
-                            youtubef = false
-                        });
-
-                }
-                catch(ex) {
-                    message.channel.send("You did not specify your username on time");
-                }
-            }
+            
 
             while (instaf == true) {
                 instaq();
             }
-            while (scf == true) {
-                scq();
-            }
-            while (linkedinf == true) {
-                linkedinq();
-            }
-            while (tiktokf == true) {
-                tiktokq();
-            }
-            while (hpf == true) {
-                housepartyq();
-            }
-            while (youtubef == true) {
-                ytq();
-            }
-            
-            while (finalizing == true) {
-                message.channel.send(instaUser + scUser + linkedinUser + tiktokUser + hpUser + YouTubeUser);
-            }
+
         }
 }
