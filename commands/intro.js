@@ -14,6 +14,12 @@ module.exports = {
         var snapUser = "null"
         var linkedinUser = "null"
 
+        var errorEmbed = new Discord.MessageEmbed()
+        .setTimestamp()
+        .setColor('#ff366b')
+        .setTitle(`Sorry, there's been an error!`)
+        .setDescription("If the problem persists, please refer to **snd help intro**")
+        .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
 
             async function instaq() {
 
@@ -32,17 +38,27 @@ module.exports = {
                             if (nameUser == "cancel") {
                                 var cancelEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
-                                .setColor('#4af3ff')
+                                .setColor('#7aff81')
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
-                                message.channel.send(cancelEmbed);
+                                message.channel.send(cancelEmbed).then(deleteMessage => {
+                                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                                });;
                                 throw "exit";
                             }     
                         });
+                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
 
                 }
                 catch(ex) {
-                    message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    if(ex == "exit") {
+                        return;
+                    }
+                    else {
+                        message.channel.send(errorEmbed)
+                    }
                     return;
                 }
 
@@ -60,17 +76,26 @@ module.exports = {
                             if (bioUser == "cancel") {
                                 var cancelEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
-                                .setColor('#4af3ff')
+                                .setColor('#7aff81')
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
-                                message.channel.send(cancelEmbed);
+                                message.channel.send(cancelEmbed).then(deleteMessage => {
+                                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                                });;
                                 throw "exit";
                             }                 
                         });
-
+                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
                 }
                 catch(ex) {
-                    message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    if(ex == "exit") {
+                        return;
+                    }
+                    else {
+                        message.channel.send(errorEmbed)
+                    }
                     return;
                 }
 
@@ -89,17 +114,26 @@ module.exports = {
                             if (instaUser == "cancel") {
                                 var cancelEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
-                                .setColor('#4af3ff')
+                                .setColor('#7aff81')
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
-                                message.channel.send(cancelEmbed);
+                                message.channel.send(cancelEmbed).then(deleteMessage => {
+                                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                                });;
                                 throw "exit";
                             }                       
                         });
-
+                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
                 }
                 catch(ex) {
-                    message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    if(ex == "exit") {
+                        return;
+                    }
+                    else {
+                        message.channel.send(errorEmbed)
+                    }
                     return;
                 }
 
@@ -117,17 +151,26 @@ module.exports = {
                                 if (snapUser == "cancel") {
                                     var cancelEmbed = new Discord.MessageEmbed()
                                     .setTimestamp()
-                                    .setColor('#4af3ff')
+                                    .setColor('#7aff81')
                                     .setTitle(`Successfully quit!`)
                                     .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
-                                    message.channel.send(cancelEmbed);
+                                    message.channel.send(cancelEmbed).then(deleteMessage => {
+                                        deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                                    });;
                                     throw "exit";
                                 }                    
                             });
-
+                            await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
+                                message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                            )});
                     }
                     catch(ex) {
-                        message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                        if(ex == "exit") {
+                            return;
+                        }
+                        else {
+                            message.channel.send(errorEmbed)
+                        }
                         return;
                     }
                 
@@ -146,17 +189,26 @@ module.exports = {
                             if (housepartyUser == "cancel") {
                                 var cancelEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
-                                .setColor('#4af3ff')
+                                .setColor('#7aff81')
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
-                                message.channel.send(cancelEmbed);
+                                message.channel.send(cancelEmbed).then(deleteMessage => {
+                                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                                });;
                                 throw "exit";
                             }                      
                         });
-
+                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
                 }
                 catch(ex) {
-                    message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    if(ex == "exit") {
+                        return;
+                    }
+                    else {
+                        message.channel.send(errorEmbed)
+                    }
                     return;
                 }
 
@@ -174,17 +226,26 @@ module.exports = {
                             if (linkedinUser == "cancel") {
                                 var cancelEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
-                                .setColor('#4af3ff')
+                                .setColor('#7aff81')
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
-                                message.channel.send(cancelEmbed);
+                                message.channel.send(cancelEmbed).then(deleteMessage => {
+                                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                                });;
                                 throw "exit";
                             }                       
                         });
-
+                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
                 }
                 catch(ex) {
-                    message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    if(ex == "exit") {
+                        return;
+                    }
+                    else {
+                        message.channel.send(errorEmbed)
+                    }
                     return;
                 }
 
@@ -205,18 +266,33 @@ module.exports = {
                 message.channel.send(qfinalEmbed);
                 try {
                     await message.channel.awaitMessages(filter, { max: 1, errors: ['cancel'] }).then(collected =>
-                        {
+                        {   
+                            if (instaUser == "none") {
+                                instaUser = "N/A"
+                            }
+                            if (snapUser == "none") {
+                                snapUser = "N/A"
+                            }
+                            if (linkedinUser == "none") {
+                                linkedinUser = "N/A"
+                            }
                             var finalizedAns = collected.first().content;   
                             if (finalizedAns == "cancel") {
                                 var cancelEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
-                                .setColor('#4af3ff')
+                                .setColor('#7aff81')
                                 .setTitle(`Successfully quit!`)
                                 .setFooter("Intro halted by " + message.author.username, message.author.displayAvatarURL())
-                                message.channel.send(cancelEmbed);
+                                message.channel.send(cancelEmbed).then(deleteMessage => {
+                                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                                });;
                                 throw "exit";
+                                
                             }            
                             else if (finalizedAns == "yes") {
+                                await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
+                                    message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                                )});
                                 var finalEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
                                 .setColor('#4af3ff')
@@ -236,7 +312,12 @@ module.exports = {
 
                 }
                 catch(ex) {
-                    message.channel.send("There was an error! Please try the command again. If the problem persists, refer to ```snd help intro```!");
+                    if(ex == "exit") {
+                        return;
+                    }
+                    else {
+                        message.channel.send(errorEmbed)
+                    }
                     return;
                 }
             }
