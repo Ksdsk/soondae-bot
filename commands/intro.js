@@ -23,7 +23,6 @@ module.exports = {
                 .setTitle(`Please type in your name!`)
                 .setDescription("You can always type 'cancel' to exit abruptly!")
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
-                message.author.send(helpReplyEmbed);
                 message.channel.send(smEmbed);
                 let filter = m => (m.author.id === message.author.id);
                 try {
