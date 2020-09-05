@@ -38,7 +38,7 @@ module.exports = {
                 message.channel.send(smEmbed);
                 let filter = m => (m.author.id === message.author.id);
                 try {
-                    await message.channel.awaitMessages(filter, { max: 1, errors: ['cancel'] }).then(collected =>
+                    await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
                             nameUser = collected.first().content;
                             if (nameUser == "cancel") {
@@ -79,7 +79,7 @@ module.exports = {
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
                 message.channel.send(descEmbed);
                 try {
-                    await message.channel.awaitMessages(filter, { max: 1, errors: ['cancel'] }).then(collected =>
+                    await message.channel.awaitMessages(filter, { max: 1, time: 300000, errors: ['cancel'] }).then(collected =>
                         {
                             bioUser = collected.first().content;   
                             if (bioUser == "cancel") {
@@ -120,7 +120,7 @@ module.exports = {
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
                 message.channel.send(instaEmbed);
                 try {
-                    await message.channel.awaitMessages(filter, { max: 1, errors: ['cancel'] }).then(collected =>
+                    await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
                             instaUser = collected.first().content;  
                             if (instaUser == "cancel") {
@@ -160,7 +160,7 @@ module.exports = {
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
                     message.channel.send(snapEmbed);
                     try {
-                        await message.channel.awaitMessages(filter, { max: 1, errors: ['cancel'] }).then(collected =>
+                        await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                             {
                                 snapUser = collected.first().content;     
                                 if (snapUser == "cancel") {
@@ -201,7 +201,7 @@ module.exports = {
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
                 message.channel.send(housepartyEmbed);
                 try {
-                    await message.channel.awaitMessages(filter, { max: 1, errors: ['cancel'] }).then(collected =>
+                    await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
                             housepartyUser = collected.first().content;   
                             if (housepartyUser == "cancel") {
@@ -242,7 +242,7 @@ module.exports = {
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
                 message.channel.send(linkedinEmbed);
                 try {
-                    await message.channel.awaitMessages(filter, { max: 1, errors: ['cancel'] }).then(collected =>
+                    await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
                             linkedinUser = collected.first().content;  
                             if (linkedinUser == "cancel") {
@@ -290,7 +290,7 @@ module.exports = {
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
                 message.channel.send(qfinalEmbed);
                 try {
-                    await message.channel.awaitMessages(filter, { max: 1, errors: ['cancel'] }).then(collected =>
+                    await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {   
                             if (instaUser == "none") {
                                 instaUser = "N/A"
