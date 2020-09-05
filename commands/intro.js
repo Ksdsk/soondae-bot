@@ -31,7 +31,7 @@ module.exports = {
 
                 var smEmbed = new Discord.MessageEmbed()
                 .setTimestamp()
-                .setColor('#4af3ff')
+                .setColor('#fffc4a')
                 .setTitle(`Please type in your name!`)
                 .setDescription("You can always type 'cancel' to exit abruptly!")
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
@@ -73,7 +73,7 @@ module.exports = {
 
                 var descEmbed = new Discord.MessageEmbed()
                 .setTimestamp()
-                .setColor('#4af3ff')
+                .setColor('#fffc4a')
                 .setTitle(`Add a bio of yourself!`)
                 .setDescription("You can always type 'cancel' to exit abruptly!")
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
@@ -114,7 +114,7 @@ module.exports = {
 
                 var instaEmbed = new Discord.MessageEmbed()
                 .setTimestamp()
-                .setColor('#4af3ff')
+                .setColor('#fffc4a')
                 .setTitle(`Enter your instagram username!`)
                 .setDescription("You can always type 'cancel' to exit abruptly! If you do not have an account associated with the social media above, please type 'none'")
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
@@ -154,7 +154,7 @@ module.exports = {
 
                 var snapEmbed = new Discord.MessageEmbed()
                 .setTimestamp()
-                .setColor('#4af3ff')
+                .setColor('#fffc4a')
                 .setTitle(`Enter your snapchat username!`)
                 .setDescription("You can always type 'cancel' to exit abruptly! If you do not have an account associated with the social media above, please type 'none'")
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
@@ -195,7 +195,7 @@ module.exports = {
 
                 var housepartyEmbed = new Discord.MessageEmbed()
                 .setTimestamp()
-                .setColor('#4af3ff')
+                .setColor('#fffc4a')
                 .setTitle(`Enter your Houseparty username!`)
                 .setDescription("You can always type 'cancel' to exit abruptly! If you do not have an account associated with the social media above, please type 'none'")
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
@@ -236,7 +236,7 @@ module.exports = {
 
                 var linkedinEmbed = new Discord.MessageEmbed()
                 .setTimestamp()
-                .setColor('#4af3ff')
+                .setColor('#fffc4a')
                 .setTitle(`Enter your LinkedIn username!`)
                 .setDescription("You can always type 'cancel' to exit abruptly! If you do not have an account associated with the social media above, please type 'none'")
                 .setFooter("Intro setup by " + message.author.username, message.author.displayAvatarURL())
@@ -276,7 +276,7 @@ module.exports = {
 
                 var qfinalEmbed = new Discord.MessageEmbed()
                 .setTimestamp()
-                .setColor('#4af3ff')
+                .setColor('#fffc4a')
                 .setTitle(`Finalize your info`)
                 .setDescription("Does this information seem correct? If so, type 'yes'. If not, type 'cancel'.")
                 .addFields(
@@ -305,7 +305,7 @@ module.exports = {
                                 housepartyUser = "N/A"
                             }
                             finalizedAns = collected.first().content;   
-                            if (finalizedAns == "cancel") {
+                            if (finalizedAns.toLowerCase() == "cancel") {
                                 var cancelEmbed = new Discord.MessageEmbed()
                                 .setTimestamp()
                                 .setColor('#7aff81')
@@ -316,7 +316,7 @@ module.exports = {
                                 });;
                                 throw "exit";
                                 
-                            } 
+                            }
 
                         });
     
@@ -337,7 +337,7 @@ module.exports = {
                 await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
                     message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
                 )});         
-                if (finalizedAns == "yes") {
+                if (finalizedAns.toLowerCase() == "yes") {
 
                     try {
                         var finalEmbed = new Discord.MessageEmbed()
