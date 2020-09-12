@@ -18,6 +18,7 @@ module.exports = {
         var bioUser = "null"
         var instaUser = "null"
         var snapUser = "null"
+        var housepartyUser = "null"
         var linkedinUser = "null"
         var finalizedAns = "null"
         var errorEmbed = new Discord.MessageEmbed()

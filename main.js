@@ -374,7 +374,7 @@ client.on('message', message => {
 
         // GAMBLE
 
-        case 'balance' || 'bal' || 'money':
+        case 'balance':
             try {
                 client.commands.get('balance').execute(message, args);
             } catch(err) {
