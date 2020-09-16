@@ -17,11 +17,11 @@ module.exports = {
           .setAuthor('Soondae Bot Commands', 'https://imgur.com/zDiQLn1.png')
           .addFields(
             { name: "Prefix", value: "The prefix is hardcoded as `snd`. Please be aware!"},
-            { name: "🔨 | Tools", value: "```avatar``````help``````invite``````poll``````serverinfo``````userinfo```"},
+            { name: "🔨 | Tools", value: "```avatar``````help``````invite``````poll``````serverinfo``````userinfo``````bubblewrap```"},
             { name: "😜 | Fun Stuff", value: "```babe``````ping``````magic``````sarcasm```"},
             { name: "💥 | GIFs", value: "```chica``````chico``````ohayo``````oof``````uwu``````tea``````dito```"},
             { name: "🦾 | Moderation", value: "```kick``````ban``````unban``````voice```"},
-            { name: "🌀 | Other", value: "```invitebot```"}
+            { name: "🌀 | Other", value: "```invitebot``````therapy```"}
           )
           .setFooter("Sent a care package to " + message.author.username, message.author.displayAvatarURL())
           message.author.send(helpReplyEmbed);
@@ -146,6 +146,20 @@ module.exports = {
       // -----------------------------------------------------------------------------------------------------------------------
 
       // FUN HELP
+      // BUBBLEWRAP HELP
+
+      else if(msgArray[2] == 'bubblewrap') {
+        const pingHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'bubblewrap' command")
+            .setDescription("**snd bubblewrap** created a bubble wrap!")
+            .addFields(
+                {name: 'Syntax', value: '```snd bubblewrap```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(pingHelpEmbed);
+    }
 
       // PING HELP
 

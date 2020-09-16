@@ -310,7 +310,26 @@ client.on('message', message => {
                 }
             }
         break;
+        // BUBBLEWRAP
 
+        case 'bubblewrap':
+            try {
+                client.commands.get('bubble').execute(message, args);
+            } catch(err) {
+                console.log("Error has occured: " + err.stack);
+                const avatarErrorEmbed = new Discord.MessageEmbed()
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry. I couldn't make a bubblewrap!")
+                    .setFooter("Bubblewrap requested by " + message.author.username, message.author.displayAvatarURL())
+                message.channel.send(avatarErrorEmbed).then(deleteMessage => {
+                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                });
+                message.delete().catch(console.error);
+            }
+
+        break;
+        
         // PING
 
         case 'ping':
