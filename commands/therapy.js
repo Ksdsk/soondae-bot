@@ -36,7 +36,7 @@ module.exports = {
                 }
 
                 message.channel.send(therapyStuff[Math.floor(Math.random() * 15)]);
-                let filter = m => (m.author.id === message.author.id);
+                filter = m => (m.author.id === message.author.id);
                 try {
                     await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
@@ -52,7 +52,7 @@ module.exports = {
                 }
 
                 message.channel.send(therapyStuff[Math.floor(Math.random() * 15)]);
-                let filter = m => (m.author.id === message.author.id);
+                filter = m => (m.author.id === message.author.id);
                 try {
                     await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
