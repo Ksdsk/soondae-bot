@@ -17,7 +17,7 @@ module.exports = {
 
 
         
-        let therapyStuff = ["I see...", "It must've been tough...", "I think about that too...", "I know...", "It will be alright...", "It's fine...", "*nods*", "Very hard times... I see", "Just keep going..!", "You're doing good..!", "You will be fine.", "I am proud of you.", "I see... I see", "It often does...", "Yes... definitely", "You will get through this."]
+        let therapyStuff = ["I see...", "It must've been tough...", "I think about that too...", "I know...", "It will be alright...", "It's fine...", "*nods of approval*", "Very hard times... I see", "Just keep going..!", "You're doing good..!", "You will be fine.", "I am proud of you.", "I see... I see", "It often does...", "Yes... definitely", "You will get through this."]
 
             async function therapyTime() {
 
@@ -27,9 +27,7 @@ module.exports = {
                     await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
                         });
-                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+
 
                 }
                 catch(ex) {
@@ -43,9 +41,7 @@ module.exports = {
                     await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
                         });
-                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+
 
                 }
                 catch(ex) {
@@ -59,9 +55,7 @@ module.exports = {
                     await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
                         });
-                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+
 
                 }
                 catch(ex) {
@@ -75,9 +69,7 @@ module.exports = {
                     await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
                         });
-                        await message.channel.messages.fetch({ limit: 2 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+
 
                 }
                 catch(ex) {
