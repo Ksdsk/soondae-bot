@@ -71,7 +71,7 @@ module.exports = {
 
             }
 
-            message.channel.reply("Tell me, what's been happening?");
+            message.reply(`Hey ${message.author.username}, tell me, what's been happening?`);
             therapyTime();
 
     }
