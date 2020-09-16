@@ -314,7 +314,7 @@ client.on('message', message => {
 
         case 'bubblewrap':
             try {
-                client.commands.get('bubble').execute(message, args);
+                client.commands.get('bubblewrap').execute(message, args);
             } catch(err) {
                 console.log("Error has occured: " + err.stack);
                 const avatarErrorEmbed = new Discord.MessageEmbed()
