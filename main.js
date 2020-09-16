@@ -571,6 +571,23 @@ client.on('message', message => {
             
         break;
 
+        case 'therapy':
+            try {
+                client.commands.get('therapy').execute(message, args);
+            } catch(err) {
+                console.log("Error has occured: " + err.stack);
+                const gifErrorEmbed = new Discord.MessageEmbed()
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry. I couldn't treat you!")
+                    .setFooter("Therapy requested by " + message.author.username, message.author.displayAvatarURL())
+                message.channel.send(gifErrorEmbed).then(deleteMessage => {
+                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                });
+                message.delete().catch(console.error);
+            }
+        break;
+
         // MODERATION
 
         // KICK

@@ -319,6 +319,21 @@ module.exports = {
           message.channel.send(inviteHelpEmbed);
       }
 
+      // INVITEBOT HELP
+
+      else if(msgArray[2] == 'therapy') {
+        const inviteHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'therapy' command")
+            .setDescription("**snd therapy** is used for therapy sessions for 3 messages.")
+            .addFields(
+                {name: 'Syntax', value: '```snd therapy```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(inviteHelpEmbed);
+    }
+
       // -----------------------------------------------------------------------------------------------------------------------
 
       // MODERATIONS
