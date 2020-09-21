@@ -17,8 +17,8 @@ module.exports = {
           .setAuthor('Soondae Bot Commands', 'https://imgur.com/zDiQLn1.png')
           .addFields(
             { name: "Prefix", value: "The prefix is hardcoded as `snd`. Please be aware!"},
-            { name: "🔨 | Tools", value: "```avatar``````help``````invite``````poll``````serverinfo``````userinfo``````bubblewrap```"},
-            { name: "😜 | Fun Stuff", value: "```babe``````ping``````magic``````sarcasm```"},
+            { name: "🔨 | Tools", value: "```avatar``````help``````invite``````poll``````serverinfo``````userinfo```"},
+            { name: "😜 | Fun Stuff", value: "```babe``````ping``````magic``````sarcasm``````bubblewrap``````clap```"},
             { name: "💥 | GIFs", value: "```chica``````chico``````ohayo``````oof``````uwu``````tea``````dito```"},
             { name: "🦾 | Moderation", value: "```kick``````ban``````unban``````voice```"},
             { name: "🌀 | Other", value: "```invitebot``````therapy```"}
@@ -156,6 +156,20 @@ module.exports = {
             .setDescription("**snd bubblewrap** created a bubble wrap!")
             .addFields(
                 {name: 'Syntax', value: '```snd bubblewrap```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(pingHelpEmbed);
+    }
+      // CLAP HELP
+
+      else if(msgArray[2] == 'clap') {
+        const pingHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'clap' command")
+            .setDescription("**snd clap** claps👏you👏!")
+            .addFields(
+                {name: 'Syntax', value: '```snd clap <sentence>```'}
             )
             .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
         message.channel.send(pingHelpEmbed);
