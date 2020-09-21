@@ -6,7 +6,7 @@ module.exports = {
     execute(message, args){
 
 
-        let finalArgs = args.join('👏');
+        let finalArgs = args.join(' 👏 ');
 
         try {
 
