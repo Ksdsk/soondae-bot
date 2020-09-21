@@ -6,11 +6,9 @@ module.exports = {
     execute(message, args){
 
 
-        let msgArgs = args.join(' ');
+        let finalArgs = args.join('👏');
 
         try {
-            
-            var finalArgs = msgArgs.replace(" ", "👏");
 
             const clapEmbed = new Discord.MessageEmbed()
             .setTimestamp()
