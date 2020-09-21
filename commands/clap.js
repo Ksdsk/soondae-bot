@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 
 module.exports = {
-    name: 'sarcasm',
-    description: 'This command mAkEs eVErYtHInG a sArCAsM',
+    name: 'clap',
+    description: 'This command claps!',
     execute(message, args){
 
 
