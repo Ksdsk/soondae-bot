@@ -410,6 +410,25 @@ client.on('message', message => {
             }
         break;
 
+        // IENCODE
+
+        case 'iencode':
+            try {
+                client.commands.get('iencode').execute(message, args);
+            } catch(err) {
+                console.log("Error has occured: " + err.stack);
+                const sarcasmErrorEmbed = new Discord.MessageEmbed()
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry! There's an error encoding your message!")
+                    .setFooter("Encode requested by " + message.author.username, message.author.displayAvatarURL())
+                message.channel.send(sarcasmErrorEmbed).then(deleteMessage => {
+                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                });
+                message.delete().catch(console.error);
+            }
+        break;
+
         // ECONOMY
 
         // GAMBLE
