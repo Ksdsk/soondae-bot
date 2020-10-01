@@ -16,7 +16,7 @@ module.exports = {
         try {
             for (var i = 0; i < msgArgs.length; i++) {
 
-                var firstChar = msgArgs.chartAt(i);
+                var firstChar = "hi";
                 var binaryChar = bin.binary(firstChar);
                 var arrayBinary = binaryChar.split("");
                 for (var j = 0; j < arrayBinary.lengthl; j++) {
