@@ -41,9 +41,9 @@ module.exports = {
                     await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
                         });
-                        await message.channel.messages.fetch({ limit: 0 }).then(messages => { // Fetches the messages
-                            // message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        });
+                        await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
 
                 }
                 catch(ex) {
@@ -59,9 +59,9 @@ module.exports = {
                     await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
                         });
-                        await message.channel.messages.fetch({ limit: 0 }).then(messages => { // Fetches the messages
-                            // message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        });
+                        await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
 
                 }
                 catch(ex) {
@@ -74,9 +74,9 @@ module.exports = {
                     await message.channel.awaitMessages(filter, { max: 1, time: 120000, errors: ['cancel'] }).then(collected =>
                         {
                         });
-                        await message.channel.messages.fetch({ limit: 0 }).then(messages => { // Fetches the messages
-                            // message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        });
+                        await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
+                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        )});
 
                 }
                 catch(ex) {
