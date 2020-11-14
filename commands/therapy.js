@@ -42,8 +42,8 @@ module.exports = {
                         {
                         });
                         await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+                            // message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        });
 
                 }
                 catch(ex) {
@@ -60,8 +60,8 @@ module.exports = {
                         {
                         });
                         await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+                            // message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        });
 
                 }
                 catch(ex) {
@@ -75,8 +75,8 @@ module.exports = {
                         {
                         });
                         await message.channel.messages.fetch({ limit: 1 }).then(messages => { // Fetches the messages
-                            message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-                        )});
+                            // message.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+                        });
 
                 }
                 catch(ex) {
