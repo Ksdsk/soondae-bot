@@ -48,6 +48,7 @@ module.exports = {
                 }
                 catch(ex) {
                         message.channel.send(errorEmbed)
+                        console.log(ex);
                     return;
                 }
 
