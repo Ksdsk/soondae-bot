@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 module.exports = {
     name: 'op',
     description: 'This command creates an ominously positive text',
