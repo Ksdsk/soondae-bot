@@ -226,6 +226,7 @@ client.on('message', message => {
             
         break;
 
+        // USERINFO
         case 'userinfo':
             try {
                 try {
@@ -350,6 +351,25 @@ client.on('message', message => {
 
         break;
         
+        // OMINOUS POSITIVITY
+
+        case 'op':
+            try {
+                client.commands.get('op').execute(message, args);
+            } catch(err) {
+                console.log("Error has occured: " + err.stack);
+                const avatarErrorEmbed = new Discord.MessageEmbed()
+                    .setTimestamp()
+                    .setColor('#ff366b')
+                    .setTitle("Sorry. I didn't understand!")
+                    .setFooter("Ominous Positivity requested by " + message.author.username, message.author.displayAvatarURL())
+                message.channel.send(avatarErrorEmbed).then(deleteMessage => {
+                    deleteMessage.delete({ timeout: 5000}).catch(console.error)
+                });
+                message.delete().catch(console.error);
+            }
+
+        break;
 
         // PING
 

@@ -175,6 +175,21 @@ module.exports = {
         message.channel.send(pingHelpEmbed);
     }
 
+        // OP HELP
+
+        else if(msgArray[2] == 'op') {
+        const pingHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'op' command")
+            .setDescription("**snd op** is used to generate a ominously positive quote!")
+            .addFields(
+                {name: 'Syntax', value: '```snd op```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(pingHelpEmbed);
+    }
+
       // PING HELP
 
       else if(msgArray[2] == 'ping') {
