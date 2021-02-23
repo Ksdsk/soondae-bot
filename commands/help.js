@@ -17,8 +17,8 @@ module.exports = {
           .setAuthor('Soondae Bot Commands', 'https://imgur.com/zDiQLn1.png')
           .addFields(
             { name: "Prefix", value: "The prefix is hardcoded as `snd`. Please be aware!"},
-            { name: "🔨 | Tools", value: "```avatar``````help``````invite``````poll``````serverinfo``````userinfo```"},
-            { name: "😜 | Fun Stuff", value: "```babe``````ping``````magic``````sarcasm``````bubblewrap``````clap```"},
+            { name: "🔨 | Tools", value: "```avatar``````help``````invite``````poll``````serverinfo``````userinfo``````intro```"},
+            { name: "😜 | Fun Stuff", value: "```babe``````ping``````magic``````sarcasm``````bubblewrap``````clap``````op```"},
             { name: "💥 | GIFs", value: "```chica``````chico``````ohayo``````oof``````uwu``````tea``````dito```"},
             { name: "🦾 | Moderation", value: "```kick``````ban``````unban``````voice```"},
             { name: "🌀 | Other", value: "```invitebot``````therapy```"}
