@@ -892,6 +892,6 @@ client.on('message', message => {
     }
 });
 
-client.login(process.env.token);
+client.login("NzQyMDgzMjQ1MzM5ODM2NDc2.XzA84A.Fzadgr64kXX7vFL47BE2olkBSzo");
 
 

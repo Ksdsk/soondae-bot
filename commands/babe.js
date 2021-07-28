@@ -1,12 +1,12 @@
-var { jStat } = require('jstat').
+var { jStat } = require('jstat');
 
 module.exports = {
     name: 'babe',
     description: 'This command measures a random babe',
     execute(message, args){
 
-        const babeMeter = jStat.beta.sample(2,2);
-        if (babeMeter <= 0.25) {
+        const babeMeter = Math.round(jStat.beta.sample(2,2));
+        if (babeMeter <= 25) {
             message.channel.send({
                 "embed": {
                     'color': '#000000',
@@ -15,7 +15,7 @@ module.exports = {
                 }
             });
         }
-        else if (babeMeter <= 0.50) {
+        else if (babeMeter <= 50) {
             message.channel.send({
                 "embed": {
                     'color': '#fffc4a',
@@ -24,7 +24,7 @@ module.exports = {
                 }
             });
         }
-        else if (babeMeter <= 0.75) {
+        else if (babeMeter <= 75) {
             message.channel.send({
                 "embed": {
                     'color': '#7aff81',
@@ -33,7 +33,7 @@ module.exports = {
                 }
             });
         }
-        else if (babeMeter <= 1.01) {
+        else if (babeMeter <= 101) {
             message.channel.send({
                 "embed": {
                     'color': '#e97dff',
