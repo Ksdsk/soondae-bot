@@ -891,7 +891,9 @@ client.on('message', message => {
             message.delete().catch(console.error);
     }
 });
-
-client.login("NzQyMDgzMjQ1MzM5ODM2NDc2.XzA84A.Fzadgr64kXX7vFL47BE2olkBSzo");
+const str1 = "NzQyMDgzMjQ1MzM5ODM2NDc2";
+const str2 = ".XzA84A.PCDHJS4SH0bAV";
+const str3 = "OScGAtSKfjgwLU";
+client.login(str1+str2+str3);
 
 

@@ -5,7 +5,7 @@ module.exports = {
     description: 'This command measures a random babe',
     execute(message, args){
 
-        const babeMeter = Math.round(jStat.beta.sample(2,2));
+        const babeMeter = Math.round(jStat.beta.sample(2,2)*100);
         if (babeMeter <= 25) {
             message.channel.send({
                 "embed": {
