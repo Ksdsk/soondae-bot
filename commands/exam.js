@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const examjson = require('../jsons/fall2021-2022.json')
+
 module.exports = {
     name: 'exam',
     description: 'This command sends info about the exam of a certain course',
@@ -8,8 +9,8 @@ module.exports = {
         courseName = courseName.toUpperCase();
         const domain = courseName.substring(0,4);
         const coursecode = courseName.substring(4);
-
-        for (var section in examjson[domain].code[coursecode]) {
+        parsedjson = json.parse(examjson);
+        for (var section in parsedjson[domain].code[coursecode]) {
             message.channel.send(section["number"]);
         }
 
