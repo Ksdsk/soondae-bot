@@ -13,9 +13,9 @@ module.exports = {
         var timejson;
         for (var i = 0; i < examjson[domain].length; i++) {
             console.log(i);
-            if (myObj[domain][i]["code"] == coursecode) {
-                for (var j = 0; j < myObj[domain][i]["section"].length; j++) {
-                    const toUnix = new Date(myObj[domain][i]["section"][j]["number"] + "', value: '" + myObj[domain][i]["section"][j]["time"]).getTime() - (3600 * 3);
+            if (examjson[domain][i]["code"] == coursecode) {
+                for (var j = 0; j < examjson[domain][i]["section"].length; j++) {
+                    const toUnix = new Date(examjson[domain][i]["section"][j]["number"] + "', value: '" + examjson[domain][i]["section"][j]["time"]).getTime() - (3600 * 3);
                     const dateObj = new Date(toUnix * 1000);
                     
                     details = details + "{name: 'Section ' + " + dateObj.toLocaleString('en-CA', { timeZone: 'UTC' }) + "'},"
