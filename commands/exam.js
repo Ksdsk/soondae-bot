@@ -11,7 +11,7 @@ module.exports = {
         const coursecode = parseInt(courseName.substring(4));
         var details = '';
         var timejson;
-        for (var i = 0; i < myObj[domain].length; i++) {
+        for (var i = 0; i < examjson[domain].length; i++) {
             console.log(i);
             if (myObj[domain][i]["code"] == coursecode) {
                 for (var j = 0; j < myObj[domain][i]["section"].length; j++) {
