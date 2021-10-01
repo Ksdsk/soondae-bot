@@ -34,5 +34,6 @@ module.exports = {
           .addFields(timejson)
           .setFooter("Exam info for " + courseName + " requested by " + message.author.username, message.author.displayAvatarURL())
         
+        message.channel.send(examEmbed);
     }
 }
