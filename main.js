@@ -296,7 +296,7 @@ client.on('message', message => {
             try {
                 client.commands.get('exam').execute(message, args);
             } catch(err) {
-                console.log("Error has occured: " + err.stack);
+                console.log("Error has occured: " + err);
                 const examErrorEmbed = new Discord.MessageEmbed()
                     .setTimestamp()
                     .setColor('#ff366b')
