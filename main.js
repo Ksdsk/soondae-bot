@@ -297,12 +297,12 @@ client.on('message', message => {
                 client.commands.get('exam').execute(message, args);
             } catch(err) {
                 console.log("Error has occured: " + err.stack);
-                const sarcasmErrorEmbed = new Discord.MessageEmbed()
+                const examErrorEmbed = new Discord.MessageEmbed()
                     .setTimestamp()
                     .setColor('#ff366b')
                     .setTitle("Sorry! There's been a fatal error!")
                     .setFooter("Exam information requested by " + message.author.username, message.author.displayAvatarURL())
-                message.channel.send(sarcasmErrorEmbed).then(deleteMessage => {
+                message.channel.send(examErrorEmbed).then(deleteMessage => {
                     deleteMessage.delete({ timeout: 5000}).catch(console.error)
                 });
                 message.delete().catch(console.error);
