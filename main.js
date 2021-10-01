@@ -302,7 +302,7 @@ client.on('message', message => {
                     .setColor('#ff366b')
                     .setTitle("Sorry! There's been a fatal error!")
                     .setFooter("Exam information requested by " + message.author.username, message.author.displayAvatarURL())
-                message.channel.send(examErrorEmbed).then(deleteMessage => {
+                message.channel.send(err).then(deleteMessage => {
                     deleteMessage.delete({ timeout: 5000}).catch(console.error)
                 });
                 message.delete().catch(console.error);
