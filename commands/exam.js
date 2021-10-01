@@ -4,7 +4,7 @@ module.exports = {
     name: 'exam',
     description: 'This command sends info about the exam of a certain course',
     execute(message, args) {
-        let courseName = args.join(' ');
+        let courseName = args.join('');
         courseName = courseName.toUpperCase();
         const domain = courseName.substring(0,4);
         const coursecode = courseName.substring(4);
