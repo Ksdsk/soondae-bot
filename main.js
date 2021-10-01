@@ -300,9 +300,9 @@ client.on('message', message => {
                 const examErrorEmbed = new Discord.MessageEmbed()
                     .setTimestamp()
                     .setColor('#ff366b')
-                    .setTitle("Sorry! There's been a fatal error!")
+                    .setTitle("Sorry! There's been a fatal error!" + err)
                     .setFooter("Exam information requested by " + message.author.username, message.author.displayAvatarURL())
-                message.channel.send(err).then(deleteMessage => {
+                message.channel.send(examErrorEmbed).then(deleteMessage => {
                     deleteMessage.delete({ timeout: 5000}).catch(console.error)
                 });
                 message.delete().catch(console.error);
