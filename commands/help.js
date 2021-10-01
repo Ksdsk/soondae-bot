@@ -17,7 +17,7 @@ module.exports = {
           .setAuthor('Soondae Bot Commands', 'https://imgur.com/zDiQLn1.png')
           .addFields(
             { name: "Prefix", value: "The prefix is hardcoded as `snd`. Please be aware!"},
-            { name: "🔨 | Tools", value: "```avatar``````help``````invite``````poll``````serverinfo``````userinfo``````intro```"},
+            { name: "🔨 | Tools", value: "```avatar``````help``````invite``````poll``````serverinfo``````userinfo``````intro``````exam```"},
             { name: "😜 | Fun Stuff", value: "```babe``````ping``````magic``````sarcasm``````bubblewrap``````clap``````op```"},
             { name: "💥 | GIFs", value: "```chica``````chico``````ohayo``````oof``````uwu``````tea``````dito```"},
             { name: "🦾 | Moderation", value: "```kick``````ban``````unban``````voice```"},
@@ -139,6 +139,19 @@ module.exports = {
             .setDescription("**snd intro** will take in your inputs and upload an Embed compiled of your data! Warning: Please do not enter **snd intro** during the intro set-up. If you would like to restart, please type in 'cancel' first, THEN re-type **snd intro**. **PLEASE USE THIS COMMAND ONE PERSON AT A TIME**!")
             .addFields(
                 {name: 'Syntax', value: '```snd intro```'}
+            )
+            .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
+        message.channel.send(oofHelpEmbed);
+    }
+    // INTRO
+    else if(msgArray[2] == 'exam') {
+        const oofHelpEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setColor('#fffc4a')
+            .setTitle("Help for 'exam' command")
+            .setDescription("**snd exam** will display the exam schedule for a course (Dalhousie University students only currently)!")
+            .addFields(
+                {name: 'Syntax', value: '```snd exam <course-full-name (ex. CSCI1105)>```'}
             )
             .setFooter("Help requested by " + message.author.username, message.author.displayAvatarURL())
         message.channel.send(oofHelpEmbed);
