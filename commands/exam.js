@@ -21,8 +21,9 @@ module.exports = {
             if (examjson[domain][i]["code"] == coursecode) {
                 for (var j = 0; j < examjson[domain][i]["section"].length; j++) {
                     const toUnix = new Date(examjson[domain][i]["section"][j]["time"]).getTime() - (3600 * 3);
-                    const dateObj = new Date(toUnix * 1000);
+                    const dateObj = new Date(toUnix / 1000);
                     examEmbed.addFields({name: 'Section ' + examjson[domain][i]["section"][j]["number"], value: dateObj.toLocaleString('en-CA', { timeZone: 'UTC' })});
+                    // examEmbed.setFooter(toUnix);
                 }
                 break;
             } 
