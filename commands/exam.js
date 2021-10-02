@@ -24,7 +24,6 @@ module.exports = {
                     const dateObj = new Date(toUnix * 1000);
                     examEmbed.addFields({name: 'Section ' + dateObj.toLocaleString('en-CA', { timeZone: 'UTC' })});
                 }
-                details = details.substring(0, details.length - 1);
                 break;
             } 
         }
